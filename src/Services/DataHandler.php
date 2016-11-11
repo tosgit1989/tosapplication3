@@ -70,6 +70,15 @@ class DataHandler {
         $query->execute();
     }
 
+    // delete($identifier)
+    public function delete($identifier) {
+        $pdo = $this->getPdo();
+        $identifierStr = $this->getUpdateParameterStrings($identifier, true);
+        $prepareText = 'DELETE FROM reviews WHERE ' . $identifierStr;
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+    }
+
     // getKeyAndValsStrings($data)
     protected function getKeysAndValsStrings($data) {
         $Keys = array();
