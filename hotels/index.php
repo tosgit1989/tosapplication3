@@ -1,6 +1,4 @@
 <?php
-require_once ('../src/Services/DataHandler.php');
-require_once ('../src/Services/Methods.php');
 $data_connect = new \Services\DataHandler();
 $hotels = $data_connect->all();
 ?>
