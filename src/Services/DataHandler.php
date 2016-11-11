@@ -18,5 +18,13 @@ class DataHandler {
         $hotel_query->execute();
         return $hotel_query->fetchAll();
     }
+
+    // find($hotel_id)
+    public function hotel_find($hotel_id) {
+        $pdo = $this->get_pdo();
+        $hotel_query = $pdo->prepare('SELECT * FROM hotels where id = :id');
+        $hotel_query->execute(['id' => $hotel_id]);
+        return $hotel_query->fetch();
+    }
 }
 ?>
