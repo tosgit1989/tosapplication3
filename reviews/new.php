@@ -1,5 +1,7 @@
 <?php
 require_once ('../app.php');
+$HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
+$ReviewId = $methods->getReviewId($_SERVER['REQUEST_URI']);
 ?>
 <html>
 <body>

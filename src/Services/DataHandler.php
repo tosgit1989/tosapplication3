@@ -19,7 +19,7 @@ class DataHandler {
         return $queryHotel->fetchAll();
     }
 
-    // find($HotelId)
+    // findHotel($HotelId)
     public function findHotel($HotelId) {
         $pdo = $this->getPdo();
         $queryHotel = $pdo->prepare('SELECT * FROM hotels where id = :id');

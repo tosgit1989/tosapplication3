@@ -5,12 +5,18 @@ class Methods{
     public function getHotelId($request) {
         $HotelId = null;
         if (preg_match('"/hotels/show.php/"', $request)) {
-           $HotelId = array_pop(explode('/', $request));
+            $HotelId = array_pop(explode('/', $request));
         }
         return $HotelId;
     }
 
-    //getReviewId()
-
+    // getReviewId($request)
+    public function getReviewId($request) {
+        $ReviewId = null;
+        if (preg_match('"/reviews/new.php/"', $request)) {
+            $ReviewId = 'new';
+        }
+        return $ReviewId;
+    }
 }
 ?>
