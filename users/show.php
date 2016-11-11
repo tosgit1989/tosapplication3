@@ -25,6 +25,13 @@ foreach ($reviews as $review) {
     echo '_u=';
     echo $UserId;
     echo '">編集</a>';
+    echo '<a href="/reviews/delete.php/h=';
+    echo $review['hotel_id'];
+    echo '_r=';
+    echo $review['id'];
+    echo '_u=';
+    echo $UserId;
+    echo '">削除</a>';
     }
 }
 ?>
