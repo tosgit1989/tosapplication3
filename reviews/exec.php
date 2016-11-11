@@ -1,7 +1,5 @@
 <?php
 require_once ('../app.php');
-$HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
-$ReviewId = $methods->getReviewId($_SERVER['REQUEST_URI']);
 $review['rate'] = $_POST['rate'];
 $review['review'] = $_POST['review'];
 $review['hotel_id'] = $HotelId;

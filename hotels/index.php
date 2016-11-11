@@ -1,5 +1,6 @@
 <?php
 require_once ('../app.php');
+$hotels = $dataConnect->getHotelAll();
 ?>
 <html>
 <body>
@@ -15,7 +16,7 @@ foreach ($hotels as $hotel) {
     echo $hotel['fee2'];
     echo $hotel['created_at'];
     echo $hotel['updated_at'];
-    echo sprintf ('<a href="../hotels/show.php/%s">レビュー・詳細を見る</a>', $hotel['id']);
+    echo sprintf ('<a href="../hotels/show.php/h=%s_r=new_u=0">レビュー・詳細を見る</a>', $hotel['id']);
 }
 ?>
 </body>

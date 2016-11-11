@@ -1,6 +1,5 @@
 <?php
 require_once ('../app.php');
-$HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
 $hotel = $dataConnect->findHotel($HotelId);
 ?>
 <html>
@@ -15,7 +14,7 @@ echo $hotel['fee1'];
 echo $hotel['fee2'];
 echo $hotel['created_at'];
 echo $hotel['updated_at'];
-echo sprintf('<a href="/reviews/new.php/HotelId=%s">このホテルのレビューを書く</a>', $hotel['id']);
+echo sprintf('<a href="/reviews/new.php/h=%s_r=new_u=0">このホテルのレビューを書く</a>', $hotel['id']);
 ?>
 </body>
 </html>
