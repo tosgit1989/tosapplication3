@@ -1,5 +1,6 @@
 <?php
 require_once ('../app.php');
+$reviews = $dataConnect->getReviewAll();
 $user = $dataConnect->findUser($UserId);
 ?>
 <html>
@@ -17,6 +18,13 @@ foreach ($reviews as $review) {
     echo $review['review'];
     echo $review['created_at'];
     echo $review['updated_at'];
+    echo '<a href="/reviews/edit.php/h=';
+    echo $review['hotel_id'];
+    echo '_r=';
+    echo $review['id'];
+    echo '_u=';
+    echo $UserId;
+    echo '">編集</a>';
     }
 }
 ?>
