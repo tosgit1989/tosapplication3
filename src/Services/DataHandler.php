@@ -26,5 +26,39 @@ class DataHandler {
         $queryHotel->execute(['id' => $HotelId]);
         return $queryHotel->fetch();
     }
+
+    // insert($data)
+    public function insert($data) {
+        $pdo = $this->getPdo();
+        $res = $this->getKeysAndValsStrings($data);
+        $prepareText = 'INSERT INTO reviews (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+    }
+
+    // getKeyAndValsStrings($data)
+    protected function getKeysAndValsStrings($data) {
+        $Keys = array();
+        $Vals = array();
+        foreach ($data as $aKey => $aVal) {
+            $Keys[] = $aKey;
+            $Vals[] = $aVal;
+        }
+        $KeysString = implode(',', $Keys);
+        $ValsString = '';
+        foreach ($Vals as $bKey => $aVal) {
+            if (!is_numeric($aVal)) {
+                $aVal = "'" . $aVal . "'";
+            }
+            if ($bKey > 0) {
+                $ValsString .= ', ';
+            }
+            $ValsString .= $aVal;
+        }
+        return [
+            'val' => $ValsString,
+            'key' => $KeysString,
+        ];
+    }
 }
 ?>
