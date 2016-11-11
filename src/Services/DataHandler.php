@@ -6,7 +6,7 @@ class DataHandler {
         $dbConnect = 'mysql:dbname=tosapplication_development; host=127.0.0.1; charset=utf8';
         $username = 'root';
         $password = '';
-        $driverOptions = array();
+        $driverOptions = [];
         $pdo = new \PDO($dbConnect, $username, $password, $driverOptions);
         return $pdo;
     }
@@ -81,8 +81,8 @@ class DataHandler {
 
     // getKeyAndValsStrings($data)
     protected function getKeysAndValsStrings($data) {
-        $Keys = array();
-        $Vals = array();
+        $Keys = [];
+        $Vals = [];
         foreach ($data as $aKey => $aVal) {
             $Keys[] = $aKey;
             $Vals[] = $aVal;
@@ -106,8 +106,8 @@ class DataHandler {
 
     // getUpdateParameterStrings($data, $isIdentify = false)
     protected function getUpdateParameterStrings($data, $isIdentify = false) {
-        $Keys = array();
-        $Vals = array();
+        $Keys = [];
+        $Vals = [];
         foreach ($data as $aKey => $aVal) {
             $Keys[] = $aKey;
             $Vals[] = $aVal;
