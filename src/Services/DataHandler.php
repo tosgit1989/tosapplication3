@@ -12,7 +12,7 @@ class DataHandler {
     }
 
     // hotel_all()
-    public function all() {
+    public function hotel_all() {
         $pdo = $this->get_pdo();
         $hotel_query = $pdo->prepare('SELECT * FROM hotels order by updated_at desc');
         $hotel_query->execute();

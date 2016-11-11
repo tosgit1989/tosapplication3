@@ -1,7 +1,7 @@
 <?php
 require_once ('../app.php');
 $data_connect = new \Services\DataHandler();
-$hotels = $data_connect->all();
+$hotels = $data_connect->hotel_all();
 $methods = new \Services\Methods();
 $hotel_id = $methods->get_hotel_id($_SERVER['REQUEST_URI']);
 $hotel = $data_connect->hotel_find($hotel_id);
