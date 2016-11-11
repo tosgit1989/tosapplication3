@@ -35,6 +35,14 @@ class DataHandler {
         return $queryHotel->fetch();
     }
 
+    // findUser($UserId)
+    public function findUser($UserId) {
+        $pdo = $this->getPdo();
+        $queryUser = $pdo->prepare('SELECT * FROM users where id = :id');
+        $queryUser->execute(['id' => $UserId]);
+        return $queryUser->fetch();
+    }
+
     // insert($data)
     public function insert($data) {
         $pdo = $this->getPdo();
