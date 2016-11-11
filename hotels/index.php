@@ -1,7 +1,5 @@
 <?php
 require_once ('../app.php');
-$dataConnect = new \Services\DataHandler();
-$hotels = $dataConnect->getHotelAll();
 ?>
 <html>
 <body>

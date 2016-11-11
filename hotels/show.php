@@ -1,8 +1,5 @@
 <?php
 require_once ('../app.php');
-$dataConnect = new \Services\DataHandler();
-$hotels = $dataConnect->getHotelAll();
-$methods = new \Services\Methods();
 $HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
 $hotel = $dataConnect->findHotel($HotelId);
 ?>
