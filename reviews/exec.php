@@ -8,7 +8,7 @@ if ($ReviewId == 'new') {
     $review['created_at'] = $now = date('Y/m/d H:i:s');
     $dataConnect->insertReview($review);
     header('Location: /hotels/index.php');
-} elseif ($HotelId == 'broken' and $UserId == 'broken') {
+} elseif ($HotelId == 'broken') {
     $dataConnect->deleteReview(['id'=>$ReviewId]);
     header('Location: /hotels/index.php');
 } else {
