@@ -9,6 +9,9 @@ $user = $dataConnect->findUser($UserId);
 <?php
 echo $user['nickname'];
 echo $user['email'];
+echo '<a href="/users/edit.php/h=0_r=0_u=';
+echo $UserId;
+echo '">編集</a>'
 ?>
 <p>レビュー一覧</p>
 <?php
