@@ -18,6 +18,7 @@ echo $hotel['fee1'];
 echo $hotel['fee2'];
 echo $hotel['created_at'];
 echo $hotel['updated_at'];
+echo sprintf('<a href="/reviews/new.php/hotel_id=%s">このホテルのレビューを書く</a>', $hotel['id']);
 ?>
 </body>
 </html>
