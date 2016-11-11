@@ -1,4 +1,5 @@
 <?php
+require_once ('../app.php');
 $data_connect = new \Services\DataHandler();
 $hotels = $data_connect->all();
 ?>
