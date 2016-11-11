@@ -51,8 +51,8 @@ class DataHandler {
         return $queryUser->fetch();
     }
 
-    // insert($data)
-    public function insert($data) {
+    // insertReview($data)
+    public function insertReview($data) {
         $pdo = $this->getPdo();
         $res = $this->getKeysAndValsStrings($data);
         $prepareText = 'INSERT INTO reviews (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
@@ -60,8 +60,8 @@ class DataHandler {
         $query->execute();
     }
 
-    // update($data, $identifier)
-    public function update($data, $identifier) {
+    // updateReview($data, $identifier)
+    public function updateReview($data, $identifier) {
         $pdo = $this->getPdo();
         $params_str = $this->getUpdateParameterStrings($data);
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
@@ -70,8 +70,8 @@ class DataHandler {
         $query->execute();
     }
 
-    // delete($identifier)
-    public function delete($identifier) {
+    // deleteReview($identifier)
+    public function deleteReview($identifier) {
         $pdo = $this->getPdo();
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'DELETE FROM reviews WHERE ' . $identifierStr;
