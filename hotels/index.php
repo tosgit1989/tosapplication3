@@ -18,6 +18,7 @@ foreach ($hotels as $hotel) {
     echo $hotel['fee2'];
     echo $hotel['created_at'];
     echo $hotel['updated_at'];
+    echo sprintf ('<a href="../hotels/show.php/%s">レビュー・詳細を見る</a>', $hotel['id']);
 }
 ?>
 </body>
