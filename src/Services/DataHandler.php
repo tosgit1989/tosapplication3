@@ -35,6 +35,14 @@ class DataHandler {
         return $queryHotel->fetch();
     }
 
+    // findReview($ReviewId)
+    public function findReview($ReviewId) {
+        $pdo = $this->getPdo();
+        $queryReview = $pdo->prepare('SELECT * FROM reviews where id = :id');
+        $queryReview->execute(['id' => $ReviewId]);
+        return $queryReview->fetch();
+    }
+
     // findUser($UserId)
     public function findUser($UserId) {
         $pdo = $this->getPdo();
@@ -48,6 +56,16 @@ class DataHandler {
         $pdo = $this->getPdo();
         $res = $this->getKeysAndValsStrings($data);
         $prepareText = 'INSERT INTO reviews (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+    }
+
+    // update($data, $identifier)
+    public function update($data, $identifier) {
+        $pdo = $this->getPdo();
+        $params_str = $this->getUpdateParameterStrings($data);
+        $identifierStr = $this->getUpdateParameterStrings($identifier, true);
+        $prepareText = 'UPDATE reviews SET ' . $params_str . ' WHERE ' . $identifierStr;
         $query = $pdo->prepare($prepareText);
         $query->execute();
     }
@@ -75,6 +93,30 @@ class DataHandler {
             'val' => $ValsString,
             'key' => $KeysString,
         ];
+    }
+
+    // getUpdateParameterStrings($data, $isIdentify = false)
+    protected function getUpdateParameterStrings($data, $isIdentify = false) {
+        $Keys = array();
+        $Vals = array();
+        foreach ($data as $aKey => $aVal) {
+            $Keys[] = $aKey;
+            $Vals[] = $aVal;
+        }
+        $updateString = '';
+        foreach ($Vals as  $bKey => $aVal) {
+            if (!is_numeric($aVal)) {
+                $aVal = "'" . $aVal . "'";
+            }
+            if ($bKey > 0) {
+                $updateString .= ', ';
+                if ($isIdentify) {
+                    $updateString .= ' and ';
+                }
+            }
+            $updateString .= sprintf('%s=%s', $Keys[$bKey], $aVal);
+        }
+        return $updateString;
     }
 }
 ?>
