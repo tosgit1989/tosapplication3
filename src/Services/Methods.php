@@ -1,13 +1,16 @@
 <?php
 namespace Services;
 class Methods{
-    // get_hotel_id($request)
-    public function get_hotel_id($request) {
-        $hotel_id = null;
+    // getHotelId($request)
+    public function getHotelId($request) {
+        $HotelId = null;
         if (preg_match('"/hotels/show.php/"', $request)) {
-           $hotel_id = array_pop(explode('/', $request));
+           $HotelId = array_pop(explode('/', $request));
         }
-        return $hotel_id;
+        return $HotelId;
     }
+
+    //getReviewId()
+
 }
 ?>
