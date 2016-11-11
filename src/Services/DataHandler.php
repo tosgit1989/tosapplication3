@@ -19,6 +19,14 @@ class DataHandler {
         return $queryHotel->fetchAll();
     }
 
+    // getReviewAll()
+    public function getReviewAll() {
+        $pdo = $this->getPdo();
+        $queryReview = $pdo->prepare('SELECT * FROM reviews order by updated_at desc');
+        $queryReview->execute();
+        return $queryReview->fetchAll();
+    }
+
     // findHotel($HotelId)
     public function findHotel($HotelId) {
         $pdo = $this->getPdo();
