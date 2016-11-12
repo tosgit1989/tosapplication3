@@ -2,8 +2,7 @@
 require_once ('../app.php');
 $hotels = $dataConnect->getHotelAll();
 ?>
-<html>
-<body>
+
 トップページ
 <?php
 foreach ($hotels as $hotel) {
@@ -22,7 +21,5 @@ foreach ($hotels as $hotel) {
 }
 ?>
 
-</body>
-</html>
 
 

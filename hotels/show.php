@@ -3,8 +3,6 @@ require_once ('../app.php');
 $hotel = $dataConnect->findHotel($HotelId);
 $reviews = $dataConnect->getReviewAll();
 ?>
-<html>
-<body>
 <?php
 echo $hotel['hotel_name'];
 echo $hotel['image_url'];
@@ -33,5 +31,3 @@ foreach ($reviews as $review) {
 }
 
 ?>
-</body>
-</html>

@@ -11,6 +11,8 @@ $UserId = array_pop(explode('=', $idArray[2]));
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
+<html>
+<body>
 
 <!--ヘッダー-->
 <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -31,3 +33,6 @@ $UserId = array_pop(explode('=', $idArray[2]));
         <p class="text-muted"></p>
     </div>
 </footer>
+
+</body>
+</html>

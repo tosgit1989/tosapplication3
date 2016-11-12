@@ -1,8 +1,6 @@
 <?php
 require_once ('../app.php');
 ?>
-<html>
-<body>
 レビューの新規作成
 <form method="POST" action="/reviews/exec.php/h=<?php echo $HotelId ?>_r=new_u=<?php echo $UserId ?>">
     <div class="form-group">
@@ -14,5 +12,3 @@ require_once ('../app.php');
     <button type="submit">投稿する</button>
 </form>
 
-</body>
-</html>

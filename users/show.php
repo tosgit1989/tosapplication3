@@ -3,8 +3,6 @@ require_once ('../app.php');
 $reviews = $dataConnect->getReviewAll();
 $user = $dataConnect->findUser($UserId);
 ?>
-<html>
-<body>
 マイページ
 <?php
 echo $user['nickname'];
@@ -38,5 +36,3 @@ foreach ($reviews as $review) {
     }
 }
 ?>
-</body>
-</html>

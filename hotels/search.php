@@ -6,8 +6,6 @@ $PrefectureKeyword =array_pop(explode('=', $KeywordArray[0]));
 $HotelKeyword =array_pop(explode('=', $KeywordArray[1]));
 $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
 ?>
-<html>
-<body>
 ホテルを検索
 <form method="POST" action="/hotels/exec.php">
     <div class="form-group">
@@ -42,5 +40,3 @@ foreach ($hotels as $hotel) {
     }
 }
 ?>
-</body>
-</html>

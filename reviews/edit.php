@@ -2,8 +2,6 @@
 require_once ('../app.php');
 $review = $dataConnect->findReview($ReviewId);
 ?>
-<html>
-<body>
 レビューの編集
 <form method="POST" action="/reviews/exec.php/h=<?php echo $HotelId ?>_r=<?php echo $ReviewId ?>_u=<?php echo $UserId ?>">
     <div class="form-group">
@@ -14,5 +12,3 @@ $review = $dataConnect->findReview($ReviewId);
     </div>
     <button type="submit">更新する</button>
 </form>
-</body>
-</html>
