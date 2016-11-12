@@ -8,10 +8,10 @@ $HotelId = array_pop(explode('=', $idArray[0]));
 $ReviewId = array_pop(explode('=', $idArray[1]));
 $UserId = array_pop(explode('=', $idArray[2]));
 ?>
+<html>
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<html>
 <body>
 
 <!--ヘッダー-->
@@ -25,7 +25,6 @@ $UserId = array_pop(explode('=', $idArray[2]));
         </div>
     </div>
 </nav>
-
 
 <!--フッター-->
 <footer class="bs-docs-footer navbar-fixed-bottom" style="background-color: #000000; height: 30px">
