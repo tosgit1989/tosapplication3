@@ -21,6 +21,8 @@ foreach ($hotels as $hotel) {
     echo '_r=0_u=0">レビュー・詳細を見る</a>';
 }
 ?>
+
+<a href="../hotels/search.php/p=_h=_d=_">ホテルを検索</a>
 </body>
 </html>
 
