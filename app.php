@@ -9,3 +9,4 @@ $ReviewId = array_pop(explode('=', $idArray[1]));
 $UserId = array_pop(explode('=', $idArray[2]));
 ?>
 <div><a href="/hotels/index.php">hotelication</a></div>
+<div><a href="/hotels/search.php/p=_h=_d=_">ホテルを検索</a></div>

@@ -22,7 +22,6 @@ foreach ($hotels as $hotel) {
 }
 ?>
 
-<a href="../hotels/search.php/p=_h=_d=_">ホテルを検索</a>
 </body>
 </html>
 
