@@ -3,6 +3,12 @@ require_once ('../app.php');
 $hotel = $dataConnect->findHotel($HotelId);
 $reviews = $dataConnect->getReviewAll();
 ?>
+
+<div style="height:50px; background-color:transparent"></div>
+<div style="background-color: brown; margin-bottom: 15px">
+    <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white"><?php echo $hotel['hotel_name'] ?></p>
+</div>
+
 <?php
 echo $hotel['hotel_name'];
 echo $hotel['image_url'];

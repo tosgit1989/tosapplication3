@@ -6,7 +6,11 @@ $PrefectureKeyword =array_pop(explode('=', $KeywordArray[0]));
 $HotelKeyword =array_pop(explode('=', $KeywordArray[1]));
 $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
 ?>
-ホテルを検索
+
+<div style="height:50px; background-color:transparent"></div>
+<div style="background-color: brown; margin-bottom: 15px">
+    <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white">ホテルを検索</p>
+</div>
 <form method="POST" action="/hotels/exec.php">
     <div class="form-group">
         <input class="form-control" placeholder="都道府県を入力" name="prefecture" type="text">
@@ -19,6 +23,7 @@ $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
     </div>
     <button type="submit">検索</button>
 </form>
+
 <?php
 foreach ($hotels as $hotel) {
     $A = $methods->FindResult($hotel['prefecture'], $PrefectureKeyword);

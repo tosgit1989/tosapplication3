@@ -3,7 +3,12 @@ require_once ('../app.php');
 $reviews = $dataConnect->getReviewAll();
 $user = $dataConnect->findUser($UserId);
 ?>
-マイページ
+
+<div style="height:50px; background-color:transparent"></div>
+<div style="background-color: brown; margin-bottom: 15px">
+    <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white">マイページ</p>
+</div>
+
 <?php
 echo $user['nickname'];
 echo $user['email'];
