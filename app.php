@@ -8,4 +8,4 @@ $HotelId = array_pop(explode('=', $idArray[0]));
 $ReviewId = array_pop(explode('=', $idArray[1]));
 $UserId = array_pop(explode('=', $idArray[2]));
 ?>
-
+<div><a href="/hotels/index.php">hotelication</a></div>
