@@ -11,5 +11,20 @@ class Methods{
         }
         return $idArray;
     }
+
+    //getEachKeyword
+    public function getEachKeyword($request) {
+        $KeywordArray = explode('_', array_pop(explode('/', $request)));
+        return $KeywordArray;
+    }
+
+    //jouken()
+    public function FindResult($Parameter, $Keyword) {
+        if (strlen($Keyword) == 0 or strpos($Parameter, $Keyword) !== false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>
