@@ -51,6 +51,16 @@ class DataHandler {
         return $queryUser->fetch();
     }
 
+    // updateUser($data, $identifier)
+    public function updateUser($data, $identifier) {
+        $pdo = $this->getPdo();
+        $params_str = $this->getUpdateParameterStrings($data);
+        $identifierStr = $this->getUpdateParameterStrings($identifier, true);
+        $prepareText = 'UPDATE users SET ' . $params_str . ' WHERE ' . $identifierStr;
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+    }
+
     // insertReview($data)
     public function insertReview($data) {
         $pdo = $this->getPdo();
