@@ -12,7 +12,7 @@ $UserId = array_pop(explode('=', $idArray[2]));
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<body>
+<body style="background-color:#d3d3d3">
 
 <!--ヘッダー-->
 <nav class="navbar navbar-fixed-top navbar-inverse">

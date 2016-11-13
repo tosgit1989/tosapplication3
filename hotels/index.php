@@ -7,20 +7,36 @@ $hotels = $dataConnect->getHotelAll();
 <div style="background-color: brown; margin-bottom: 15px">
     <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white">トップページ</p>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="bs-docs-section">
 
+<h3 class="text-middle">新着ホテル</h3>
 <?php
 foreach ($hotels as $hotel) {
+    echo '<div class="media">';
+    echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
+    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
+    echo sprintf('<img class="media-object" src="%s" alt="hotel_picture" style="width: 100%; height: auto">', $hotel['image_url']);
+    echo '</a>';
+    echo '</div>';
+    echo '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">';
+    echo '<h4 class="media-heading">';
+    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
     echo $hotel['hotel_name'];
-    echo $hotel['image_url'];
+    echo '</a>';
+    echo '</h4>';
     echo $hotel['detail'];
-    echo $hotel['access'];
-    echo $hotel['address'];
-    echo $hotel['fee1'];
-    echo $hotel['fee2'];
-    echo $hotel['created_at'];
-    echo $hotel['updated_at'];
-    echo '<a href="/hotels/show.php/h=';
-    echo $hotel['id'];
-    echo '_r=0_u=0">レビュー・詳細を見る</a>';
+    echo '</br>';
+    echo sprintf('<a href="/reviews/new.php/h=%s_r=0_u=0">このホテルのレビューを書く</a>', $hotel['id']);
+    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
+    echo '</div>';
+    echo '</div>';
 }
 ?>
+
+            </div>
+        </div>
+    </div>
+</div>
