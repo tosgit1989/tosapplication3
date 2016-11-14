@@ -3,22 +3,22 @@ namespace Services;
 class Methods{
     // getEachId($request)
     public function getEitherId($request) {
-        $h0Id = 0;
-        $r0Id = 0;
-        $u0Id = 0;
+        $hId = 0;
+        $rId = 0;
+        $uId = 0;
         if (preg_match('"hotels"', $request)) {
-            $h0Id = array_pop(explode('/', $request));
+            $hId = array_pop(explode('/', $request));
         // レビュー新規作成時
         } elseif (preg_match('"reviews"', $request) and preg_match('"hotelId"', $request)) {
-            $h0Id = array_pop(explode('=', array_pop(explode('/', $request))));
-            $r0Id = 'new';
+            $hId = array_pop(explode('=', array_pop(explode('/', $request))));
+            $rId = 'new';
         // レビュー編集時または削除時
         } elseif (preg_match('"reviews"', $request)) {
-            $r0Id = array_pop(explode('/', $request));
+            $rId = array_pop(explode('/', $request));
         } elseif (preg_match('"users"', $request)) {
-            $u0Id = array_pop(explode('/', $request));
+            $uId = array_pop(explode('/', $request));
         }
-        return array($h0Id, $r0Id, $u0Id);
+        return array($hId, $rId, $uId);
     }
 
     //getEachKeyword
