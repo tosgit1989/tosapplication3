@@ -2,7 +2,6 @@
 require_once ('../app.php');
 $hotel = $dataConnect->findHotel($HotelId);
 $reviews = $dataConnect->getReviewAll();
-echo $hotel['id'];
 ?>
 
 <div style="height:50px; background-color:transparent"></div>
