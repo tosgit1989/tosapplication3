@@ -76,6 +76,7 @@ class DataHandler {
         $params_str = $this->getUpdateParameterStrings($data);
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'UPDATE reviews SET ' . $params_str . ' WHERE ' . $identifierStr;
+        var_dump($prepareText);
         $query = $pdo->prepare($prepareText);
         $query->execute();
     }

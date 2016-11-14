@@ -17,20 +17,22 @@ $hotels = $dataConnect->getHotelAll();
 foreach ($hotels as $hotel) {
     echo '<div class="media">';
     echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
-    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
-    echo sprintf('<img class="media-object" src="%s" alt="hotel_picture" style="width: 100%; height: auto">', $hotel['image_url']);
+    echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
+    echo '<img class="media-object" src="';
+    echo $hotel['image_url'];
+    echo '" alt="hotel_picture" style="width: 100%; height: auto">';
     echo '</a>';
     echo '</div>';
     echo '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">';
     echo '<h4 class="media-heading">';
-    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
+    echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
     echo $hotel['hotel_name'];
     echo '</a>';
     echo '</h4>';
     echo $hotel['detail'];
     echo '</br>';
-    echo sprintf('<a href="/reviews/new.php/h=%s_r=0_u=0">このホテルのレビューを書く</a>', $hotel['id']);
-    echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
+    echo sprintf('<a href="/reviews/new.php/hotelId=%s">このホテルのレビューを書く</a>', $hotel['id']);
+    echo sprintf('<a href="/hotels/show.php/%s">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
     echo '</div>';
     echo '</div>';
 }

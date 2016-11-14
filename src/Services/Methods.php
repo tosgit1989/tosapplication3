@@ -2,14 +2,23 @@
 namespace Services;
 class Methods{
     // getEachId($request)
-    public function getEachId($request) {
-        //$request='/reviews/edit.php/h=1_r=1_u=1'
-        if ($request == '/hotels/index.php' or in_array('"hotels/search.php"', $request)) {
-            $idArray = array('h=0', 'r=0', 'u=0');
-        } else {
-            $idArray = explode('_', array_pop(explode('/', $request)));
+    public function getEitherId($request) {
+        $h0Id = 0;
+        $r0Id = 0;
+        $u0Id = 0;
+        if (preg_match('"hotels"', $request)) {
+            $h0Id = array_pop(explode('/', $request));
+        // レビュー新規作成時
+        } elseif (preg_match('"reviews"', $request) and preg_match('"hotelId"', $request)) {
+            $h0Id = array_pop(explode('=', array_pop(explode('/', $request))));
+            $r0Id = 'new';
+        // レビュー編集時または削除時
+        } elseif (preg_match('"reviews"', $request)) {
+            $r0Id = array_pop(explode('/', $request));
+        } elseif (preg_match('"users"', $request)) {
+            $u0Id = array_pop(explode('/', $request));
         }
-        return $idArray;
+        return array($h0Id, $r0Id, $u0Id);
     }
 
     //getEachKeyword
@@ -18,7 +27,7 @@ class Methods{
         return $KeywordArray;
     }
 
-    //jouken()
+    //FindResult()
     public function FindResult($Parameter, $Keyword) {
         if (strlen($Keyword) == 0 or strpos($Parameter, $Keyword) !== false) {
             return true;

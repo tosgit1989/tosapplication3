@@ -2,6 +2,7 @@
 require_once ('../app.php');
 $hotel = $dataConnect->findHotel($HotelId);
 $reviews = $dataConnect->getReviewAll();
+echo $hotel['id'];
 ?>
 
 <div style="height:50px; background-color:transparent"></div>
@@ -24,8 +25,8 @@ $reviews = $dataConnect->getReviewAll();
 
                     <!--ホテル投稿画面へのリンク-->
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
-                        <a href="/reviews/new.php/h=<?php echo $hotel['id'] ?>_r=new_u=<?php echo $UserId ?>" class="btn btn-primary" role="button" style="width: 100%">レビューを書く</a> <!--「レビューを書く」をクリックすると投稿ページに移動-->
-                        <a href="/reviews/new.php/h=<?php echo $hotel['id'] ?>_r=new_u=<?php echo $UserId ?>" class="btn btn-primary" role="button" style="width: 100%">サインインしてレビューを書く</a>
+                        <a href="/reviews/new.php/hotelId=<?php echo $hotel['id'] ?>" class="btn btn-primary" role="button" style="width: 100%">レビューを書く</a> <!--「レビューを書く」をクリックすると投稿ページに移動-->
+                        <a href="/reviews/new.php/hotelId=<?php echo $hotel['id'] ?>" class="btn btn-primary" role="button" style="width: 100%">サインインしてレビューを書く</a>
                     </div>
 
                 </div><!--/media-->
@@ -37,8 +38,8 @@ $reviews = $dataConnect->getReviewAll();
                         <!--detailなどを表示-->
                         <h3 class="text-middle">詳細情報</h3>
                         <?php echo $hotel['detail'] ?><br>
-                        【宿泊料金】<?php $hotel['fee1'] ?><?php $hotel['fee2'] ?><br>
-                        <?php $hotel['access'] ?>
+                        【宿泊料金】<?php echo $hotel['fee1'] ?><?php echo $hotel['fee2'] ?><br>
+                        <?php echo $hotel['access'] ?>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
                     <div>

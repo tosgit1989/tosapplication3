@@ -17,7 +17,7 @@ $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
             <div class="bs-docs-section">
 
                 <h3 class="text-middle">検索</h3>
-<form method="POST" action="/hotels/exec.php">
+<form method="POST" action="/hotels/exec.php/p=_h=_u=">
     <div class="form-group">
         <input class="form-control" placeholder="都道府県を入力" name="prefecture" type="text"><br>
         <input class="form-control" placeholder="ホテル名を入力" name="hotel" type="text"><br>
@@ -35,20 +35,20 @@ foreach ($hotels as $hotel) {
     if ($A and $B and $C) {
         echo '<div class="media">';
         echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
-        echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
+        echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
         echo sprintf('<img class="media-object" src="%s" alt="hotel_picture" style="width: 100%; height: auto">', $hotel['image_url']);
         echo '</a>';
         echo '</div>';
         echo '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">';
         echo '<h4 class="media-heading">';
-        echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">', $hotel['id']);
+        echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
         echo $hotel['hotel_name'];
         echo '</a>';
         echo '</h4>';
         echo $hotel['detail'];
         echo '</br>';
-        echo sprintf('<a href="/reviews/new.php/h=%s_r=0_u=0">このホテルのレビューを書く</a>', $hotel['id']);
-        echo sprintf('<a href="/hotels/show.php/h=%s_r=0_u=0">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
+        echo sprintf('<a href="/reviews/new.php/hotelId=%s">このホテルのレビューを書く</a>', $hotel['id']);
+        echo sprintf('<a href="/hotels/show.php/%s">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
         echo '</div>';
         echo '</div>';
     }
