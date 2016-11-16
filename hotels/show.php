@@ -25,7 +25,6 @@ $reviews = $dataConnect->getReviewAll();
                     <!--ホテル投稿画面へのリンク-->
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
                         <a href="/reviews/new.php/hotelId=<?php echo $hotel['id'] ?>" class="btn btn-primary" role="button" style="width: 100%">レビューを書く</a> <!--「レビューを書く」をクリックすると投稿ページに移動-->
-                        <a href="/reviews/new.php/hotelId=<?php echo $hotel['id'] ?>" class="btn btn-primary" role="button" style="width: 100%">サインインしてレビューを書く</a>
                     </div>
 
                 </div><!--/media-->
