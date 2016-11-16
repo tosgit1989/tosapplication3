@@ -1,11 +1,10 @@
 <?php
 namespace Services;
-class Methods{
+    class Methods{
     // getEachId($request)
     public function getEitherId($request) {
         $hId = 0;
         $rId = 0;
-        $uId = 0;
         if (preg_match('"hotels"', $request)) {
             $hId = array_pop(explode('/', $request));
         // レビュー新規作成時
@@ -15,10 +14,8 @@ class Methods{
         // レビュー編集時または削除時
         } elseif (preg_match('"reviews"', $request)) {
             $rId = array_pop(explode('/', $request));
-        } elseif (preg_match('"users"', $request)) {
-            $uId = array_pop(explode('/', $request));
         }
-        return array($hId, $rId, $uId);
+        return array($hId, $rId);
     }
 
     //getEachKeyword
