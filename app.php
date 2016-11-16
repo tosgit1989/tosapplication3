@@ -10,6 +10,7 @@ $ReviewId = $idArray[1];
 session_start();
 if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
     $UserId = $_SESSION['id'];
+    $user = $dataConnect->findUser($UserId);
 } else {
     header('Location: /notice.php');
 }
@@ -30,6 +31,9 @@ if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a class="active navbar-brand" href="/hotels/search.php/p=_h=_d=_">ホテルを検索</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/show.php/<?php echo $user['id'] ?>">現在のユーザー: <?php echo $user['nickname'] ?></a></li>
             </ul>
         </div>
     </div>
