@@ -26,6 +26,7 @@ $hotel = $dataConnect->findHotel($HotelId);
 
                 <h3>本当に削除しますか？</h3>
                 <a href="/reviews/exec.php/delete=<?php echo $ReviewId ?>">はい</a>
+                <a href="/users/show.php/<?php echo $UserId ?>">いいえ</a>
                 <div style="height: 30px"></div>
 
             </div>
