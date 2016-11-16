@@ -32,7 +32,9 @@ foreach ($hotels as $hotel) {
         echo '<div class="media">';
         echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
         echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
-        echo sprintf('<img class="media-object" src="%s" alt="hotel_picture" style="width: 100%; height: auto">', $hotel['image_url']);
+        echo '<img class="media-object" src="';
+        echo $hotel['image_url'];
+        echo '" alt="hotel_picture" style="width: 100%; height: auto">';
         echo '</a>';
         echo '</div>';
         echo '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">';
