@@ -11,28 +11,13 @@ class DataHandler {
         return $pdo;
     }
 
-    // getHotelAll()
-    public function getHotelAll() {
+    // getAll($TableName)
+    public function getAll($TableName) {
         $pdo = $this->getPdo();
-        $queryHotel = $pdo->prepare('SELECT * FROM hotels order by updated_at desc');
-        $queryHotel->execute();
-        return $queryHotel->fetchAll();
-    }
-
-    // getReviewAll()
-    public function getReviewAll() {
-        $pdo = $this->getPdo();
-        $queryReview = $pdo->prepare('SELECT * FROM reviews order by updated_at desc');
-        $queryReview->execute();
-        return $queryReview->fetchAll();
-    }
-
-    // getUserAll()
-    public function getUserAll() {
-        $pdo = $this->getPdo();
-        $queryUser = $pdo->prepare('SELECT * FROM users order by id desc');
-        $queryUser->execute();
-        return $queryUser->fetchAll();
+        $prepareText = 'SELECT * FROM ' . $TableName . ' ORDER BY updated_at DESC';
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+        return $query->fetchAll();
     }
 
     // findHotel($HotelId)

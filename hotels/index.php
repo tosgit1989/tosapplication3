@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$hotels = $dataConnect->getHotelAll();
+$hotels = $dataConnect->getAll('hotels');
 ?>
 
 <div style="height:50px; background-color:transparent"></div>

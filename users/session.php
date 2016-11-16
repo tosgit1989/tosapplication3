@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$users = $dataConnect->getUserAll();
+$users = $dataConnect->getAll('users');
 $p = 0;
 foreach ($users as $user) {
     if ($_POST['email'] == $user['email'] and $_POST['psw'] == $user['psw']) {
