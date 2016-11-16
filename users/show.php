@@ -20,7 +20,7 @@ $user = $dataConnect->findUser($UserId);
                         <h3 class="text-middle">基本情報</h3>
                         <h4>ニックネーム  : <?php echo $user['nickname'] ?></h4>
                         <h4>メールアドレス: <?php echo $user['email'] ?></h4>
-                        <a href=/users/edit.php/<?php echo $user['id'] ?>" class="btn btn-primary" role="button">編集</a>
+                        <a href="/users/edit.php/<?php echo $user['id'] ?>" class="btn btn-primary" role="button">編集</a>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
                     <div>
@@ -50,7 +50,6 @@ $user = $dataConnect->findUser($UserId);
                                 echo $review['rate'];
                                 echo '</br>';
                                 echo 'このレビューを';
-
                                 echo sprintf('<a href="/reviews/edit.php/%s">編集</a>', $review['id']);
                                 echo sprintf('<a href="/reviews/delete.php/%s">削除</a>', $review['id']);
                                 echo '</div>';
