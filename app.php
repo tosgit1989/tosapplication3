@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
 } else {
     //セッションが効いている状態でサインインページ以外のページに移動した場合
     $UserId = $_SESSION['id'];
-    $user = $dataConnect->findUser($UserId);
+    $user = $dataConnect->findById($UserId, 'users');
 }
 
 ?>

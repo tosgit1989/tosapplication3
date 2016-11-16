@@ -20,28 +20,13 @@ class DataHandler {
         return $query->fetchAll();
     }
 
-    // findHotel($HotelId)
-    public function findHotel($HotelId) {
+    // findById($Id, $TableName)
+    public function findById($Id, $TableName) {
         $pdo = $this->getPdo();
-        $queryHotel = $pdo->prepare('SELECT * FROM hotels where id = :id');
-        $queryHotel->execute(['id' => $HotelId]);
-        return $queryHotel->fetch();
-    }
-
-    // findReview($ReviewId)
-    public function findReview($ReviewId) {
-        $pdo = $this->getPdo();
-        $queryReview = $pdo->prepare('SELECT * FROM reviews where id = :id');
-        $queryReview->execute(['id' => $ReviewId]);
-        return $queryReview->fetch();
-    }
-
-    // findUser($UserId)
-    public function findUser($UserId) {
-        $pdo = $this->getPdo();
-        $queryUser = $pdo->prepare('SELECT * FROM users where id = :id');
-        $queryUser->execute(['id' => $UserId]);
-        return $queryUser->fetch();
+        $prepareText = 'SELECT * FROM ' . $TableName . ' WHERE id = :id';
+        $query = $pdo->prepare($prepareText);
+        $query->execute(['id' => $Id]);
+        return $query->fetch();
     }
 
     // findUserByEmail($Email)

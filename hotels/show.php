@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$hotel = $dataConnect->findHotel($HotelId);
+$hotel = $dataConnect->findById($HotelId, 'hotels');
 $reviews = $dataConnect->getAll('reviews');
 ?>
 
@@ -46,7 +46,7 @@ $reviews = $dataConnect->getAll('reviews');
                         <?php
                         foreach ($reviews as $review) {
                             if ($review['hotel_id'] == $HotelId) {
-                                $user = $dataConnect->findUser($review['user_id']);
+                                $user = $dataConnect->findById($review['user_id'], 'users');
                                 echo '<div class="media">';
                                 echo '<div class="media-body">';
                                 echo '<h4 class="media-heading">';
