@@ -27,15 +27,9 @@ class Methods{
         return $rId;
     }
 
-    //getEachKeyword
-    public function getEachKeyword($request) {
-        $KeywordArray = explode('_', array_pop(explode('/', $request)));
-        return $KeywordArray;
-    }
-
-    //FindResult()
+    //FindResult($Parameter, $Keyword)
     public function FindResult($Parameter, $Keyword) {
-        if (strlen($Keyword) == 0 or strpos($Parameter, $Keyword) !== false) {
+        if (strlen($Keyword) == 0 or preg_match("'" . $Keyword . "'", $Parameter)) {
             return true;
         } else {
             return false;

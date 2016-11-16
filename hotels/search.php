@@ -1,10 +1,6 @@
 <?php
 require_once ('../app.php');
 $hotels = $dataConnect->getHotelAll();
-$KeywordArray = $methods->getEachKeyword($_SERVER['REQUEST_URI']);
-$PrefectureKeyword =array_pop(explode('=', $KeywordArray[0]));
-$HotelKeyword =array_pop(explode('=', $KeywordArray[1]));
-$DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
 ?>
 
 <div style="height:50px; background-color:transparent"></div>
@@ -17,11 +13,11 @@ $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
             <div class="bs-docs-section">
 
                 <h3 class="text-middle">検索</h3>
-<form method="POST" action="/hotels/exec.php/p=_h=_u=">
+<form method="POST" action="/hotels/search.php">
     <div class="form-group">
-        <input class="form-control" placeholder="都道府県を入力" name="prefecture" type="text"><br>
-        <input class="form-control" placeholder="ホテル名を入力" name="hotel" type="text"><br>
-        <input class="form-control" placeholder="詳細情報を入力" name="detail" type="text"><br>
+        <input class="form-control" placeholder="都道府県を入力" name="prefecture" type="text" value="<?php $_POST['prefecture'] ?>"><br>
+        <input class="form-control" placeholder="ホテル名を入力" name="hotel_name" type="text" value="<?php $_POST['hotel_name'] ?>"><br>
+        <input class="form-control" placeholder="詳細情報を入力" name="detail" type="text" value="<?php $_POST['detail'] ?>"><br>
     </div>
     <button class="btn btn-primary" type="submit">検索</button>
 </form>
@@ -29,9 +25,9 @@ $DetailKeyword =array_pop(explode('=', $KeywordArray[2]));
 <h3>検索結果</h3>
 <?php
 foreach ($hotels as $hotel) {
-    $A = $methods->FindResult($hotel['prefecture'], $PrefectureKeyword);
-    $B = $methods->FindResult($hotel['hotel_name'], $HotelKeyword);
-    $C = $methods->FindResult($hotel['detail'], $DetailKeyword);
+    $A = $methods->FindResult($hotel['address'], $_POST['prefecture']);
+    $B = $methods->FindResult($hotel['hotel_name'], $_POST['hotel_name']);
+    $C = $methods->FindResult($hotel['detail'], $_POST['detail']);
     if ($A and $B and $C) {
         echo '<div class="media">';
         echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
