@@ -59,4 +59,4 @@ foreach ($hotels as $hotel) {
         </div>
     </div>
 </div>
-
+<div style="height:30px; background-color:transparent"></div>
