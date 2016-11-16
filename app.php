@@ -3,9 +3,8 @@ require_once ('../src/Services/DataHandler.php');
 require_once ('../src/Services/Methods.php');
 $dataConnect = new \Services\DataHandler();
 $methods = new \Services\Methods();
-$idArray = $methods->getEitherId($_SERVER['REQUEST_URI']);
-$HotelId = $idArray[0];
-$ReviewId = $idArray[1];
+$HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
+$ReviewId = $methods->getReviewId($_SERVER['REQUEST_URI']);
 
 session_start();
 if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
