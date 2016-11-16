@@ -7,11 +7,17 @@ $HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
 $ReviewId = $methods->getReviewId($_SERVER['REQUEST_URI']);
 
 session_start();
-if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
+
+if ($_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
+    //サインインページに移動した場合
+    unset($_SESSION['id']);
+} elseif ($_SESSION['id'] < 1) {
+    //セッションが効いていない状態でサインインページ以外のページに移動した場合
+    header('Location: /notice.php');
+} else {
+    //セッションが効いている状態でサインインページ以外のページに移動した場合
     $UserId = $_SESSION['id'];
     $user = $dataConnect->findUser($UserId);
-} else {
-    header('Location: /notice.php');
 }
 
 ?>
@@ -32,7 +38,14 @@ if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
                 <li><a class="active navbar-brand" href="/hotels/search.php/p=_h=_d=_">ホテルを検索</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/users/show.php/<?php echo $user['id'] ?>">現在のユーザー: <?php echo $user['nickname'] ?></a></li>
+                <?php
+                if ($_SESSION['id'] >= 1 and $_SERVER['REQUEST_URI'] !== '/users/sign_in.php') {
+                    echo sprintf('<li><a href="/users/show.php/%s">', $user['id']);
+                    echo sprintf('現在のユーザー: %s</a></li>', $user['nickname']);
+                    echo '<li><a href="/users/sign_in.php">サインアウト</a></li>';
+                }
+
+                ?>
             </ul>
         </div>
     </div>
