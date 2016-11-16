@@ -6,7 +6,10 @@ $methods = new \Services\Methods();
 $idArray = $methods->getEitherId($_SERVER['REQUEST_URI']);
 $HotelId = $idArray[0];
 $ReviewId = $idArray[1];
-$UserId = $idArray[2];
+
+session_start();
+$UserId = $_SESSION['id'];
+
 ?>
 <html>
 <head>

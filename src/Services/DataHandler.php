@@ -27,6 +27,14 @@ class DataHandler {
         return $queryReview->fetchAll();
     }
 
+    // getUserAll()
+    public function getUserAll() {
+        $pdo = $this->getPdo();
+        $queryUser = $pdo->prepare('SELECT * FROM users order by id desc');
+        $queryUser->execute();
+        return $queryUser->fetchAll();
+    }
+
     // findHotel($HotelId)
     public function findHotel($HotelId) {
         $pdo = $this->getPdo();
@@ -48,6 +56,14 @@ class DataHandler {
         $pdo = $this->getPdo();
         $queryUser = $pdo->prepare('SELECT * FROM users where id = :id');
         $queryUser->execute(['id' => $UserId]);
+        return $queryUser->fetch();
+    }
+
+    // findUserByEmail($Email)
+    public function findUserByEmail($Email) {
+        $pdo = $this->getPdo();
+        $queryUser = $pdo->prepare('SELECT * FROM users where email = :email');
+        $queryUser->execute(['email' => $Email]);
         return $queryUser->fetch();
     }
 
