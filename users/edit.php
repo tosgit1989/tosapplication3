@@ -1,6 +1,5 @@
 <?php
 require_once ('../app.php');
-$user = $dataConnect->findUser($UserId);
 ?>
 
 <div style="height:50px; background-color:transparent"></div>
@@ -15,12 +14,10 @@ $user = $dataConnect->findUser($UserId);
                 <!--フォーム-->
                 <form method="POST" action="/users/exec.php/<?php echo $UserId ?>">
                     <div class="form-group">
-                        <input required="required" class="form-control" placeholder="メールアドレスを入力" name="email" type="text">
+                        <input required="required" class="form-control" placeholder="メールアドレスを入力" name="email" type="text" value="<?php echo $user['email'] ?>"><br>
+                        <input required="required" class="form-control" placeholder="ニックネームを入力" name="nickname" type="text" value="<?php echo $user['nickname'] ?>">
                     </div>
-                    <div class="form-group">
-                        <input required="required" class="form-control" placeholder="ニックネームを入力" name="nickname" type="text">
-                    </div>
-                    <button type="submit">更新する</button>
+                    <button type="submit" class="btn btn-primary">更新する</button>
                 </form>
 
             </div>
