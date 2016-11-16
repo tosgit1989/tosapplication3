@@ -1,20 +1,3 @@
-<?php
-require_once ('../src/Services/DataHandler.php');
-require_once ('../src/Services/Methods.php');
-$dataConnect = new \Services\DataHandler();
-$methods = new \Services\Methods();
-$idArray = $methods->getEitherId($_SERVER['REQUEST_URI']);
-$HotelId = $idArray[0];
-$ReviewId = $idArray[1];
-
-session_start();
-if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
-    $UserId = $_SESSION['id'];
-} else {
-    header('Location: /notice.php');
-}
-
-?>
 <html>
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -32,6 +15,23 @@ if ($_SESSION['id'] >= 1 or $_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
         </div>
     </div>
 </nav>
+
+<div style="height:50px; background-color:transparent"></div>
+<div style="background-color: brown; margin-bottom: 15px">
+    <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white">このページを見るにはサインインが必要です。</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="bs-docs-section">
+
+                <a href="/users/sign_in.php">サインインページへ</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height:30px; background-color:transparent"></div>
 
 <!--フッター-->
 <footer class="bs-docs-footer navbar-fixed-bottom" style="background-color: #000000; height: 30px">
