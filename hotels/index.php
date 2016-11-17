@@ -34,8 +34,10 @@ $hotels = $dataConnect->getAll('hotels');
                         echo '</h4>';
                         echo $hotel['detail'];
                         echo '</br>';
-                        echo sprintf('<a href="/reviews/new.php/hotelId=%s">このホテルのレビューを書く</a>', $hotel['id']);
-                        echo sprintf('<a href="/hotels/show.php/%s">このホテルのレビュー・詳細を見る</a>', $hotel['id']);
+                        echo 'このホテルの';
+                        echo sprintf('<a href="/reviews/new.php/hotelId=%s">レビューを書く</a>', $hotel['id']);
+                        echo ' / ';
+                        echo sprintf('<a href="/hotels/show.php/%s">レビュー・詳細を見る</a>', $hotel['id']);
                         echo '</div>';
                         echo '</div>';
                     }
