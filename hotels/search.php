@@ -31,6 +31,7 @@ $hotels = $dataConnect->getAll('hotels');
                     $A = $methods->matchKeyword($hotel['address'], $_POST['prefecture']);
                     $B = $methods->matchKeyword($hotel['hotel_name'], $_POST['hotel_name']);
                     $C = $methods->matchKeyword($hotel['detail'], $_POST['detail']);
+                    //各項目とも「キーワード入力→一致なし」でなければ検索結果を表示　ただし、全項目がキーワード未入力の場合は検索結果を表示しない
                     if ($A >= 0 and $B  >= 0 and $C >= 0 and abs($A) + abs($B) + abs($C) >= 1) {
                         echo '<div class="media">';
                         echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
