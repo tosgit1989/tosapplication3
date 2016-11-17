@@ -10,15 +10,15 @@ if ($ReviewId == 'new') {
     $review['hotel_id'] = $HotelId;
     $review['created_at'] = $now = date('Y/m/d H:i:s');
     $dataConnect->insertReview($review);
-    header('Location: /hotels/index.php');
+    header('Location: /hotels/top_page.php');
 } elseif (preg_match('"edit"', $ReviewId)) {
     // レビュー更新時
     $dataConnect->updateReview($review, ['id' => array_pop(explode('=', $ReviewId))]);
-    header('Location: /hotels/index.php');
+    header('Location: /hotels/top_page.php');
 } elseif (preg_match('"delete"', $ReviewId)) {
     // レビュー削除時
     $dataConnect->deleteReview(['id' => array_pop(explode('=', $ReviewId))]);
-    header('Location: /hotels/index.php');
+    header('Location: /hotels/top_page.php');
 }
 
 ?>

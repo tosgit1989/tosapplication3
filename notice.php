@@ -8,7 +8,7 @@
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="active navbar-brand" href="/hotels/index.php">hotelication</a>
+            <a class="active navbar-brand" href="/hotels/top_page.php">hotelication</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
