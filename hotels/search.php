@@ -15,9 +15,12 @@ $hotels = $dataConnect->getAll('hotels');
                 <h3 class="text-middle">検索</h3>
                 <form method="POST" action="/hotels/search.php">
                     <div class="form-group">
-                        <input class="form-control" placeholder="都道府県を入力" name="prefecture" type="text" value="<?php $_POST['prefecture'] ?>"><br>
-                        <input class="form-control" placeholder="ホテル名を入力" name="hotel_name" type="text" value="<?php $_POST['hotel_name'] ?>"><br>
-                        <input class="form-control" placeholder="詳細情報を入力" name="detail" type="text" value="<?php $_POST['detail'] ?>"><br>
+                        <p><strong>都道府県</strong></p>
+                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" type="text" value="<?php $_POST['prefecture'] ?>"><br>
+                        <p><strong>ホテル名</strong></p>
+                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" type="text" value="<?php $_POST['hotel_name'] ?>"><br>
+                        <p><strong>詳細情報</strong></p>
+                        <input class="form-control" placeholder="キーワードを入力" name="detail" type="text" value="<?php $_POST['detail'] ?>"><br>
                     </div>
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>
