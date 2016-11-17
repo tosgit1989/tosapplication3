@@ -41,7 +41,6 @@ class DataHandler {
     public function updateUser($dataN, $dataE, $identifier) {
         $pdo = $this->getPdo();
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
-        // $prepareText = 'UPDATE users SET ' . $params_str . ' WHERE ' . $identifierStr;
         $prepareText = 'UPDATE users SET nickname = "' . $dataN . '", email = "' . $dataE . '" WHERE ' . $identifierStr;
         var_dump($prepareText);
         $query = $pdo->prepare($prepareText);
