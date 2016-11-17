@@ -27,7 +27,7 @@
         <div class="col-xs-12">
             <div class="bs-docs-section">
 
-                <a href="/users/sign_in.php">サインインページへ</a>
+                <a href="/users/sign_in.php" class="btn btn-primary">サインインページへ</a>
 
             </div>
         </div>
