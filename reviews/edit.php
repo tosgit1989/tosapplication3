@@ -28,10 +28,22 @@ $hotel = $dataConnect->findById($review['hotel_id'], 'hotels');
                 <!--フォーム-->
                 <form method="POST" action="/reviews/exec.php/edit=<?php echo $review['id'] ?>">
                     <div class="form-group">
-                        <input required="required" class="form-control" placeholder="レートを入力(半角数字)" name="rate" type="text" value="<?php echo $review['rate'] ?>"><br>
+                        <?php
+                        foreach(range(1, 10) as $i) {
+                            echo '<div class="radio-inline"><input type="radio" value="';
+                            echo $i;
+                            echo '" name="rate" ';
+                            if ($review['rate'] == $i) {
+                                echo 'checked="checked"';
+                            }
+                            echo '><label>';
+                            echo $i;
+                            echo '</label></div>';
+                        }
+                        ?>
                         <input required="required" class="form-control" placeholder="レビューを入力" name="review" type="text" value="<?php echo $review['review'] ?>"><br>
                     </div>
-                    <button class="btn-primary" type="submit">更新する</button>
+                    <button class="btn btn-primary" type="submit">更新する</button>
                 </form>
 
             </div>
