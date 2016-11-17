@@ -51,6 +51,7 @@ $user = $dataConnect->findById($UserId, 'users');
                                 echo '</br>';
                                 echo 'このレビューを';
                                 echo sprintf('<a href="/reviews/edit.php/%s">編集</a>', $review['id']);
+                                echo ' / ';
                                 echo sprintf('<a href="/reviews/delete.php/%s">削除</a>', $review['id']);
                                 echo '</div>';
                                 echo '</div>';
