@@ -25,10 +25,10 @@ $hotels = $dataConnect->getAll('hotels');
 <h3>検索結果</h3>
 <?php
 foreach ($hotels as $hotel) {
-    $A = $methods->FindResult($hotel['address'], $_POST['prefecture']);
-    $B = $methods->FindResult($hotel['hotel_name'], $_POST['hotel_name']);
-    $C = $methods->FindResult($hotel['detail'], $_POST['detail']);
-    if ($A and $B and $C) {
+    $A = $methods->matchKeyword($hotel['address'], $_POST['prefecture']);
+    $B = $methods->matchKeyword($hotel['hotel_name'], $_POST['hotel_name']);
+    $C = $methods->matchKeyword($hotel['detail'], $_POST['detail']);
+    if ($A >= 0 and $B  >= 0 and $C >= 0 and abs($A) + abs($B) + abs($C) >= 1) {
         echo '<div class="media">';
         echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
         echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);

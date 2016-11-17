@@ -27,12 +27,14 @@ class Methods{
         return $rId;
     }
 
-    //FindResult($Parameter, $Keyword)
-    public function FindResult($Parameter, $Keyword) {
-        if (strlen($Keyword) == 0 or preg_match("'" . $Keyword . "'", $Parameter)) {
-            return true;
+    //matchKeyword($Parameter, $Keyword)
+    public function matchKeyword($Parameter, $Keyword) {
+        if (strlen($Keyword) == 0) {
+            return 0;
+        } elseif (preg_match("'" . $Keyword . "'", $Parameter)) {
+            return 1;
         } else {
-            return false;
+            return -1;
         }
     }
 }
