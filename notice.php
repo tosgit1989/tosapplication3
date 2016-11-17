@@ -12,7 +12,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a class="active navbar-brand" href="/hotels/search.php/p=_h=_d=_">ホテルを検索</a></li>
+                <li><a class="active navbar-brand" href="/hotels/search.php/">ホテルを検索</a></li>
             </ul>
         </div>
     </div>
