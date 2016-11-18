@@ -23,6 +23,7 @@ $user = $dataConnect->findById($UserId, 'users');
                         <a href="/users/edit.php/<?php echo $user['id'] ?>" class="btn btn-primary" role="button">編集</a>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
+                    <p style="border-bottom: 1px solid black"></p>
                     <div>
                         <!--自分の投稿したものを表示-->
                         <h3 class="text-middle"><?php echo $user['nickname'] ?>さんのレビュー一覧</h3>
