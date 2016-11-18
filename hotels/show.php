@@ -40,6 +40,7 @@ $reviews = $dataConnect->getAll('reviews');
                         <?php echo $hotel['access'] ?>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
+                    <p style="border-bottom: 1px solid black"></p>
                     <div>
                         <!--みんなのレビューを表示-->
                         <h3 class="text-middle">みんなのレビュー</h3>
