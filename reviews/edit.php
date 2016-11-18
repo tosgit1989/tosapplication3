@@ -46,6 +46,7 @@ $hotel = $dataConnect->findById($review['hotel_id'], 'hotels');
                         <input required="required" class="form-control" placeholder="レビューを入力" name="review" type="text" value="<?php echo $review['review'] ?>"><br>
                     </div>
                     <button class="btn btn-primary" type="submit">更新する</button>
+                    <a href="/users/show.php/<?php echo $UserId ?>" class="btn" style="background-color: silver; color: black" type="submit">キャンセル</a>
                 </form>
 
             </div>
