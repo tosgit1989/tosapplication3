@@ -3,7 +3,7 @@ namespace Services;
 class DataHandler {
     // getPdo()
     protected function getPdo() {
-        $dbConnect = 'mysql:dbname=tosapplication_development; host=127.0.0.1; charset=utf8';
+        $dbConnect = 'mysql:dbname=tosapplication; host=127.0.0.1; charset=utf8';
         $username = 'root';
         $password = '';
         $driverOptions = [];
