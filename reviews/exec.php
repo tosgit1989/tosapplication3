@@ -5,17 +5,17 @@ $review['review'] = $_POST['review'];
 $review['user_id'] = $UserId;
 $review['updated_at'] = $now = date('Y/m/d H:i:s');
 
-if ($ReviewId == 'new') {
+if ($_POST['exectype'] == 'new') {
     // レビュー新規作成時
     $review['hotel_id'] = $HotelId;
     $review['created_at'] = $now = date('Y/m/d H:i:s');
     $dataConnect->insertReview($review);
     header('Location: /hotels/top_page.php');
-} elseif (preg_match('"edit"', $ReviewId)) {
+} elseif ($_POST['exectype'] == 'edit') {
     // レビュー更新時
     $dataConnect->updateReview($review, ['id' => array_pop(explode('=', $ReviewId))]);
     header('Location: /hotels/top_page.php');
-} elseif (preg_match('"delete"', $ReviewId)) {
+} elseif ($_POST['exectype'] == 'delete') {
     // レビュー削除時
     $dataConnect->deleteReview(['id' => array_pop(explode('=', $ReviewId))]);
     header('Location: /hotels/top_page.php');

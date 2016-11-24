@@ -40,6 +40,7 @@ $hotel = $dataConnect->findById($HotelId, 'hotels');
                         ?>
                         <p><strong>レビュー</strong></p>
                         <input required="required" class="form-control" placeholder="レビューを入力" name="review" type="text"><br>
+                        <input class="form-control" name="exectype" type="hidden" value="new">
                     </div>
                     <button class="btn btn-primary" type="submit">投稿する</button>
                 </form>
