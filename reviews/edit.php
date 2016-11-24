@@ -26,7 +26,7 @@ $hotel = $dataConnect->findById($review['hotel_id'], 'hotels');
                 </div><br>
 
                 <!--フォーム-->
-                <form method="POST" action="/reviews/exec.php/edit=<?php echo $review['id'] ?>">
+                <form method="POST" action="/reviews/exec.php/<?php echo $review['id'] ?>">
                     <div class="form-group">
                         <p><strong>レート</strong></p>
                         <?php

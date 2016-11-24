@@ -26,7 +26,7 @@ $hotel = $dataConnect->findById($review['hotel_id'], 'hotels');
                 </div>
 
                 <h3>本当に削除しますか？</h3>
-                <form method="POST" action="/reviews/exec.php/delete=<?php echo $ReviewId ?>">
+                <form method="POST" action="/reviews/exec.php/<?php echo $ReviewId ?>">
                     <div class="form-group">
                         <input class="form-control" name="exectype" type="hidden" value="delete">
                     </div>

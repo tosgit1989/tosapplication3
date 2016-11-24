@@ -13,11 +13,11 @@ if ($_POST['exectype'] == 'new') {
     header('Location: /hotels/top_page.php');
 } elseif ($_POST['exectype'] == 'edit') {
     // レビュー更新時
-    $dataConnect->updateReview($review, ['id' => array_pop(explode('=', $ReviewId))]);
+    $dataConnect->updateReview($review, ['id' => $ReviewId]);
     header('Location: /hotels/top_page.php');
 } elseif ($_POST['exectype'] == 'delete') {
     // レビュー削除時
-    $dataConnect->deleteReview(['id' => array_pop(explode('=', $ReviewId))]);
+    $dataConnect->deleteReview(['id' => $ReviewId]);
     header('Location: /hotels/top_page.php');
 }
 
