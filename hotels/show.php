@@ -1,7 +1,6 @@
 <?php
 require_once ('../app.php');
 $hotel = $dataConnect->findById($HotelId, 'hotels');
-$reviews = $dataConnect->getAll('reviews');
 ?>
 
 <div style="height:50px; background-color:transparent"></div>

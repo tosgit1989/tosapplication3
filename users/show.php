@@ -1,6 +1,5 @@
 <?php
 require_once ('../app.php');
-$reviews = $dataConnect->getAll('reviews');
 $user = $dataConnect->findById($UserId, 'users');
 ?>
 
