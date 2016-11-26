@@ -12,9 +12,38 @@ $user = $dataConnect->findById($UserId, 'users');
         <div class="col-xs-12">
             <div class="bs-docs-section">
 
+                <?php
+                if ($_POST['tab'] !== "tab2") {
+                    $isTab1Active = "active";
+                    $isTab2Active = "";
+                    $isTab1Hidden = "";
+                    $isTab2Hidden = "hidden";
+                } else {
+                    $isTab1Active = "";
+                    $isTab2Active = "active";
+                    $isTab1Hidden = "hidden";
+                    $isTab2Hidden = "";
+                }
+                ?>
+                <!--タブ-->
+                <ul class="nav nav-tabs">
+                    <li class=<?php echo $isTab1Active ?>>
+                        <a href="" data-toggle="tab" onclick="document.form1.submit();return false;">基本情報</a>
+                        <form name="form1" method="POST" action="/users/show.php/<?php echo $UserId ?>">
+                            <input type="hidden" name="tab" value="tab1">
+                        </form>
+                    </li>
+                    <li class=<?php echo $isTab2Active ?>>
+                        <a href="" data-toggle="tab" onclick="document.form2.submit();return false;"><?php echo $user['nickname'] ?>さんのレビュー一覧</a>
+                        <form name="form2" method="POST" action="/users/show.php/<?php echo $UserId ?>">
+                            <input type="hidden" name="tab" value="tab2">
+                        </form>
+                    </li>
+                </ul>
+                <!-- / タブ-->
                 <!--コンテンツ-->
                 <div id="myTabContent" class="tab-content">
-                    <div>
+                    <div <?php echo $isTab1Hidden ?>>
                         <!--自分の基本情報を表示-->
                         <h3 class="text-middle">基本情報</h3>
                         <h4>ニックネーム  : <?php echo $user['nickname'] ?></h4>
@@ -22,8 +51,7 @@ $user = $dataConnect->findById($UserId, 'users');
                         <a href="/users/edit.php/<?php echo $user['id'] ?>" class="btn btn-primary" role="button">編集</a>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
-                    <p style="border-bottom: 1px solid black"></p>
-                    <div>
+                    <div <?php echo $isTab2Hidden ?>>
                         <!--自分の投稿したものを表示-->
                         <h3 class="text-middle"><?php echo $user['nickname'] ?>さんのレビュー一覧</h3>
                         <?php

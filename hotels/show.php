@@ -30,8 +30,38 @@ $hotel = $dataConnect->findById($HotelId, 'hotels');
 
                 <div class="media"></div> <!--この行は隙間確保用-->
 
-                <div>
-                    <div>
+                <?php
+                if ($_POST['tab'] !== "tab2") {
+                    $isTab1Active = "active";
+                    $isTab2Active = "";
+                    $isTab1Hidden = "";
+                    $isTab2Hidden = "hidden";
+                } else {
+                    $isTab1Active = "";
+                    $isTab2Active = "active";
+                    $isTab1Hidden = "hidden";
+                    $isTab2Hidden = "";
+                }
+                ?>
+                <!--タブ-->
+                <ul class="nav nav-tabs">
+                    <li class=<?php echo $isTab1Active ?>>
+                        <a href="" data-toggle="tab" onclick="document.form1.submit();return false;">詳細情報</a>
+                        <form name="form1" method="POST" action="/hotels/show.php/<?php echo $HotelId ?>">
+                            <input type="hidden" name="tab" value="tab1">
+                        </form>
+                    </li>
+                    <li class=<?php echo $isTab2Active ?>>
+                        <a href="" data-toggle="tab" onclick="document.form2.submit();return false;">みんなのレビュー</a>
+                        <form name="form2" method="POST" action="/hotels/show.php/<?php echo $HotelId ?>">
+                            <input type="hidden" name="tab" value="tab2">
+                        </form>
+                    </li>
+                </ul>
+                <!-- / タブ-->
+                <!--コンテンツ-->
+                <div id="myTabContent" class="tab-content">
+                    <div <?php echo $isTab1Hidden ?>>
                         <!--detailなどを表示-->
                         <h3 class="text-middle">詳細情報</h3>
                         <?php echo $hotel['detail'] ?><br>
@@ -39,8 +69,7 @@ $hotel = $dataConnect->findById($HotelId, 'hotels');
                         <?php echo $hotel['access'] ?>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
-                    <p style="border-bottom: 1px solid black"></p>
-                    <div>
+                    <div <?php echo $isTab2Hidden ?>>
                         <!--みんなのレビューを表示-->
                         <h3 class="text-middle">みんなのレビュー</h3>
                         <?php
