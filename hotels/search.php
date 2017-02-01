@@ -15,11 +15,11 @@ require_once ('../app.php');
                 <form method="POST" action="/hotels/search.php">
                     <div class="form-group">
                         <p><strong>都道府県</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" type="text" value="<?php $_POST['prefecture'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" type="text" value="<?php echo $_POST['prefecture'] ?>"><br>
                         <p><strong>ホテル名</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" type="text" value="<?php $_POST['hotel_name'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" type="text" value="<?php echo $_POST['hotel_name'] ?>"><br>
                         <p><strong>詳細情報</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="detail" type="text" value="<?php $_POST['detail'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="detail" type="text" value="<?php echo $_POST['detail'] ?>"><br>
                     </div>
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>
