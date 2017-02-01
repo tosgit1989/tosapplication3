@@ -1,6 +1,6 @@
 <?php
-require_once ('../src/Services/DataHandler.php');
-require_once ('../src/Services/Methods.php');
+require_once ('/Users/kagatoshio/projects/tosapplication3/src/Services/DataHandler.php');
+require_once ('/Users/kagatoshio/projects/tosapplication3/src/Services/Methods.php');
 $dataConnect = new \Services\DataHandler();
 $methods = new \Services\Methods();
 $HotelId = $methods->getHotelId($_SERVER['REQUEST_URI']);
@@ -10,17 +10,21 @@ $reviews = $dataConnect->getAll('reviews');
 
 session_start();
 
-if ($_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
-    //サインインページに移動した場合
-    unset($_SESSION['id']);
+if (preg_match('"users/session.php"', $_SERVER['REQUEST_URI'])
+    or preg_match('"users/message.php"', $_SERVER['REQUEST_URI'])
+    or preg_match('"users/sign_in.php"', $_SERVER['REQUEST_URI'])
+    or preg_match('"users/sign_up.php"', $_SERVER['REQUEST_URI'])) {
+    // 上記4通りの場合は、セッションが効いていなくても何もしない
 } elseif ($_SESSION['id'] < 1) {
-    //セッションが効いていない状態でサインインページ以外のページに移動した場合
-    header('Location: /notice.php');
+    // 上記の場合以外で、セッションが効いていない場合
+    header('Location: /users/message.php/SessionTimeOut');
 } else {
-    //セッションが効いている状態でサインインページ以外のページに移動した場合
+    //セッションが効いている場合
     $UserId = $_SESSION['id'];
     $user = $dataConnect->findById($UserId, 'users');
 }
+
+$HeaderStatus = $methods->getHeaderStatus($_SESSION['id']);
 
 ?>
 <html>
@@ -36,18 +40,23 @@ if ($_SERVER['REQUEST_URI'] == '/users/sign_in.php') {
             <a class="active navbar-brand" href="/hotels/top_page.php">hotelication</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul <?php echo $HeaderStatus ?> class="nav navbar-nav">
                 <li><a href="/hotels/search.php/">ホテルを検索</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <?php
-                if ($_SESSION['id'] >= 1 and $_SERVER['REQUEST_URI'] !== '/users/sign_in.php') {
-                    echo sprintf('<li><a href="/users/show.php/%s">', $user['id']);
-                    echo sprintf('現在のユーザー: %s</a></li>', $user['nickname']);
-                    echo '<li><a href="/users/sign_in.php">サインアウト</a></li>';
-                }
 
-                ?>
+            </ul>
+            <ul <?php echo $HeaderStatus ?> class="nav navbar-nav navbar-right">
+                <li>
+                    <ul style="color: white">現在のユーザー: <?php echo $user['nickname'] ?></ul>
+                </li>
+                <li>
+                    <a href="/users/show.php/<?php echo $UserId ?>">マイページ</a>
+                </li>
+                <li style="max-height: 50px">
+                    <a href="" data-toggle="link" onclick="document.SignOut.submit();return false;">サインアウト</a>
+                    <form name="SignOut" method="POST" action="/users/session.php">
+                        <input type="hidden" name="SignInOrUpOrOut" value="SignOut">
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

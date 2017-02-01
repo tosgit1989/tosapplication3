@@ -27,6 +27,14 @@ class Methods{
         return $rId;
     }
 
+    // getHeaderStatus($SessionId)
+    public function getHeaderStatus($SessionId) {
+        if (isset($SessionId)) {
+            return '';
+        } else {
+            return 'hidden';
+        }
+    }
     //matchKeyword($Parameter, $Keyword)
     public function matchKeyword($Parameter, $Keyword) {
         if (strlen($Keyword) == 0) {

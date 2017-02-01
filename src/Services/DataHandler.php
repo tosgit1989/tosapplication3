@@ -47,6 +47,15 @@ class DataHandler {
         $query->execute();
     }
 
+        // insert($data, $TableName)
+    public function insert($data, $TableName) {
+        $pdo = $this->getPdo();
+        $res = $this->getKeysAndValsStrings($data);
+        $prepareText = 'INSERT INTO ' . $TableName . ' (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+    }
+
     // insertReview($data)
     public function insertReview($data) {
         $pdo = $this->getPdo();
