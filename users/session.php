@@ -33,8 +33,8 @@ if ($_POST['SignInOrUpOrOut'] == 'SignIn' or $_POST['SignInOrUpOrOut'] == 'SignU
         }
         if($p == 1) {
             if(isset($_POST['email'])) setcookie("email", $_POST['email'], time()+120);
-            $findUserByEmail = $dataConnect->findUserByEmail($_POST['email']);
-            $_SESSION['id'] = $findUserByEmail['id'];
+            $getUserByEmail = $dataConnect->getUserByEmail($_POST['email']);
+            $_SESSION['id'] = $getUserByEmail['id'];
             header('Location: /index.php');
         } else {
             $_SESSION['id'] = null;

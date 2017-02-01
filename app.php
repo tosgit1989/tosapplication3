@@ -21,7 +21,7 @@ if (preg_match('"users/session.php"', $_SERVER['REQUEST_URI'])
 } else {
     //セッションが効いている場合
     $UserId = $_SESSION['id'];
-    $user = $dataConnect->findById($UserId, 'users');
+    $user = $dataConnect->getById($UserId, 'users');
 }
 
 $HeaderStatus = $methods->getHeaderStatus($_SESSION['id']);

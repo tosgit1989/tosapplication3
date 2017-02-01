@@ -20,8 +20,8 @@ class DataHandler {
         return $query->fetchAll();
     }
 
-    // findById($Id, $TableName)
-    public function findById($Id, $TableName) {
+    // getById($Id, $TableName)
+    public function getById($Id, $TableName) {
         $pdo = $this->getPdo();
         $prepareText = 'SELECT * FROM ' . $TableName . ' WHERE id = :id';
         $query = $pdo->prepare($prepareText);
@@ -29,8 +29,8 @@ class DataHandler {
         return $query->fetch();
     }
 
-    // findUserByEmail($Email)
-    public function findUserByEmail($Email) {
+    // getUserByEmail($Email)
+    public function getUserByEmail($Email) {
         $pdo = $this->getPdo();
         $queryUser = $pdo->prepare('SELECT * FROM users where email = :email');
         $queryUser->execute(['email' => $Email]);
