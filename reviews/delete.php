@@ -4,9 +4,8 @@ $review = $dataConnect->getById($ReviewId, 'reviews');
 $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
 ?>
 
-<div style="height:50px; background-color:transparent"></div>
-<div style="background-color: brown; margin-bottom: 15px">
-    <p style="font-family: 'Times New Roman'; font-size: 40px; font-style: italic; color: white">レビューの削除</p>
+<div class="page-title">
+    <p class="page-title-text">レビューの削除</p>
 </div>
 <div class="container">
     <div class="row">
