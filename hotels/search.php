@@ -22,7 +22,7 @@ require_once ('../app.php');
                     </div>
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>
-                
+
                 <p style="border-bottom: 1px solid black"></p>
                 <h3>検索結果</h3>
                 <?php
@@ -32,28 +32,8 @@ require_once ('../app.php');
                     $C = $methods->matchKeyword($hotel['detail'], $_POST['detail']);
                     //各項目とも「キーワード入力→一致なし」でなければ検索結果を表示　ただし、全項目がキーワード未入力の場合は検索結果を表示しない
                     if ($A >= 0 and $B  >= 0 and $C >= 0 and abs($A) + abs($B) + abs($C) >= 1) {
-                        echo '<div class="media">';
-                        echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';
-                        echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
-                        echo '<img class="media-object" src="';
-                        echo $hotel['image_url'];
-                        echo '" alt="hotel_picture" style="width: 100%; height: auto">';
-                        echo '</a>';
-                        echo '</div>';
-                        echo '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">';
-                        echo '<h4 class="media-heading">';
-                        echo sprintf('<a href="/hotels/show.php/%s">', $hotel['id']);
-                        echo $hotel['hotel_name'];
-                        echo '</a>';
-                        echo '</h4>';
-                        echo $hotel['detail'];
-                        echo '</br>';
-                        echo 'このホテルの';
-                        echo sprintf('<a href="/reviews/new.php/hotelId=%s">レビューを書く</a>', $hotel['id']);
-                        echo ' / ';
-                        echo sprintf('<a href="/hotels/show.php/%s">レビュー・詳細を見る</a>', $hotel['id']);
-                        echo '</div>';
-                        echo '</div>';
+                        $MediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
+                        echo $MediaHtml;
                     }
                 }
                 ?>

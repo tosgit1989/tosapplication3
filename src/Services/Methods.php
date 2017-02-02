@@ -69,5 +69,31 @@ class Methods{
             return -1;
         }
     }
+
+    // getMediaHtml($id, $name, $image, $detail)
+    public function getMediaHtml($id, $name, $image, $detail) {
+        $html = '<div class="media">'
+                . '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">'
+                . sprintf('<a href="/hotels/show.php/%s">', $id)
+                . '<img class="media-object" src="' . $image . '" alt="hotel_picture" style="width: 100%; height: auto">'
+                . '</a>'
+                . '</div>'
+                . '<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">'
+                . '<h4 class="media-heading">'
+                . sprintf('<a href="/hotels/show.php/%s">', $id)
+                . $name
+                . '</a>'
+                . '</h4>'
+                . $detail
+                . '<br>'
+                . 'このホテルの'
+                . sprintf('<a href="/reviews/new.php/hotelId=%s">レビューを書く</a>', $id)
+                . ' / '
+                . sprintf('<a href="/hotels/show.php/%s">レビュー・詳細を見る</a>', $id)
+                . '</div>'
+                . '</div>';
+        return $html;
+    }
+
 }
 ?>
