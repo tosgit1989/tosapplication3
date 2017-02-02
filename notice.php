@@ -32,7 +32,6 @@
         </div>
     </div>
 </div>
-<div style="height:30px; background-color:transparent"></div>
 
 <!--フッター-->
 <footer class="bs-docs-footer navbar-fixed-bottom" style="background-color: #000000; height: 30px">

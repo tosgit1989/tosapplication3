@@ -84,4 +84,3 @@ $ContentStatus = $methods->getContentStatus($_POST['tab']);
         </div>
     </div>
 </div>
-<div style="height:30px; background-color:transparent"></div>
