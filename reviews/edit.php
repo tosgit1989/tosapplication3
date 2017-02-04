@@ -32,17 +32,18 @@ $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
                         foreach(range(1, 10) as $i) {
                             echo '<div class="radio-inline"><input type="radio" value="';
                             echo $i;
-                            echo '" name="rate" ';
+                            echo sprintf('" name="rate" id="rate%s"', $i);
                             if ($review['rate'] == $i) {
                                 echo 'checked="checked"';
                             }
-                            echo '><label>';
+                            echo sprintf('><label for="rate%s">', $i);
                             echo $i;
                             echo '</label></div>';
                         }
                         ?>
-                        <p><strong>レビュー</strong></p>
-                        <input required="required" class="form-control" placeholder="レビューを入力" name="review" type="text" value="<?php echo $review['review'] ?>"><br>
+                        <br>
+                        <label for="review"><strong>レビュー</strong></label>
+                        <input required="required" class="form-control" placeholder="レビューを入力" name="review" id="review" type="text" value="<?php echo $review['review'] ?>"><br>
                         <input class="form-control" name="exectype" type="hidden" value="edit">
                     </div>
                     <button class="btn btn-primary" type="submit">更新する</button>

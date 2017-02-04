@@ -13,12 +13,12 @@ require_once ('../app.php');
                 <h3 class="text-middle">検索</h3>
                 <form method="POST" action="/hotels/search.php">
                     <div class="form-group">
-                        <p><strong>都道府県</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" type="text" value="<?php echo $_POST['prefecture'] ?>"><br>
-                        <p><strong>ホテル名</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" type="text" value="<?php echo $_POST['hotel_name'] ?>"><br>
-                        <p><strong>詳細情報</strong></p>
-                        <input class="form-control" placeholder="キーワードを入力" name="detail" type="text" value="<?php echo $_POST['detail'] ?>"><br>
+                        <label for="prefecture"><strong>都道府県</strong></label>
+                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" id="prefecture" type="text" value="<?php echo $_POST['prefecture'] ?>"><br>
+                        <label for="hotel_name"><strong>ホテル名</strong></label>
+                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" id="hotel_name" type="text" value="<?php echo $_POST['hotel_name'] ?>"><br>
+                        <label for="detail"><strong>詳細情報</strong></label>
+                        <input class="form-control" placeholder="キーワードを入力" name="detail" id="detail" type="text" value="<?php echo $_POST['detail'] ?>"><br>
                     </div>
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>

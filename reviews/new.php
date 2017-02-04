@@ -31,14 +31,15 @@ $hotel = $dataConnect->getById($HotelId, 'hotels');
                         foreach(range(1, 10) as $i) {
                             echo '<div class="radio-inline"><input type="radio" value="';
                             echo $i;
-                            echo '" name="rate"><label>';
+                            echo sprintf('" name="rate" id="rate%s"><label for="rate%s">', $i, $i);
                             echo '';
                             echo $i;
                             echo '</label></div>';
                         }
                         ?>
-                        <p><strong>レビュー</strong></p>
-                        <input required="required" class="form-control" placeholder="レビューを入力" name="review" type="text"><br>
+                        <br>
+                        <label for="review"><strong>レビュー</strong></label>
+                        <input required="required" class="form-control" placeholder="レビューを入力" name="review" id="review" type="text"><br>
                         <input class="form-control" name="exectype" type="hidden" value="new">
                     </div>
                     <button class="btn btn-primary" type="submit">投稿する</button>
