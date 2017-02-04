@@ -27,8 +27,11 @@ if (preg_match('"users/session.php"', $_SERVER['REQUEST_URI'])
 $HeaderStatus = $methods->getHeaderStatus($_SESSION['id']);
 
 ?>
+
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>hotelication</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/application.css">
