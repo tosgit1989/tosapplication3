@@ -37,6 +37,16 @@ class DataHandler {
         return $queryUser->fetch();
     }
 
+    // update($data, $identifier, $TableName)
+    public function update($data, $identifier, $TableName) {
+        $pdo = $this->getPdo();
+        $paramsStr = $this->getUpdateParameterStrings($data);
+        $identifierStr = $this->getUpdateParameterStrings($identifier, true);
+        $prepareText = 'UPDATE ' . $TableName . ' SET ' . $paramsStr . ' WHERE ' . $identifierStr;
+        var_dump($prepareText);
+        $query = $pdo->prepare($prepareText);
+    }
+
     // updateUser($data, $identifier)
     public function updateUser($dataN, $dataE, $identifier) {
         $pdo = $this->getPdo();
