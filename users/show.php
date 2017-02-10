@@ -66,10 +66,10 @@ $ContentStatus = $methods->getContentStatus($_POST['tab']);
                                 echo $review['rate'];
                                 echo '</strong> / 10';
                                 echo '<br>';
-                                echo 'このレビューを';
-                                echo sprintf('<a href="/reviews/edit.php/%s">編集</a>', $review['id']);
-                                echo ' / ';
-                                echo sprintf('<a href="/reviews/delete.php/%s">削除</a>', $review['id']);
+                                echo '<strong>このレビューを </strong>';
+                                echo sprintf('<a href="/reviews/edit.php/%s" class="btn btn-primary" >編集</a>', $review['id']);
+                                echo ' ';
+                                echo sprintf('<a href="/reviews/delete.php/%s" class="btn btn-danger" >削除</a>', $review['id']);
                                 echo '</div>';
                                 echo '</div>';
                             }

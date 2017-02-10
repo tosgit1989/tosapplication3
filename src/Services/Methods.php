@@ -86,10 +86,10 @@ class Methods{
                 . '</h4>'
                 . $detail
                 . '<br>'
-                . 'このホテルの'
-                . sprintf('<a href="/reviews/new.php/hotelId=%s">レビューを書く</a>', $id)
-                . ' / '
-                . sprintf('<a href="/hotels/show.php/%s">レビュー・詳細を見る</a>', $id)
+                . '<strong>このホテルの </strong>'
+                . sprintf('<a href="/reviews/new.php/hotelId=%s" class="btn btn-primary" >レビューを書く</a>', $id)
+                . ' '
+                . sprintf('<a href="/hotels/show.php/%s" class="btn btn-primary" >レビュー・詳細を見る</a>', $id)
                 . '</div>'
                 . '</div>';
         return $html;
