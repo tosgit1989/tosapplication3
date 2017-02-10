@@ -34,7 +34,13 @@ $HeaderStatus = $methods->getHeaderStatus($_SESSION['id']);
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="active navbar-brand" href="/hotels/top_page.php">hotelication</a>
+            <?php
+            if (isset($_SESSION['id'])) {
+                echo '<a class="active navbar-brand" href="/index.php">hotelication</a>';
+            } else {
+                echo '<a class="active navbar-brand">hotelication</a>';
+            }
+            ?>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul <?php echo $HeaderStatus ?> class="nav navbar-nav">
