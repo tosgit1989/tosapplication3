@@ -10,7 +10,7 @@ if ($_POST['exectype'] == 'new') {
     $review['hotel_id'] = $HotelId;
     $review['created_at'] = $now = date('Y/m/d H:i:s');
     $dataConnect->insertReview($review);
-    header('Location: /hotels/top_page.php');
+    header('Location: /index.php');
 } elseif ($_POST['exectype'] == 'edit') {
     // レビュー更新時
     $dataConnect->updateReview($review, ['id' => $ReviewId]);
