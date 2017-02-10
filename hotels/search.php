@@ -23,7 +23,8 @@ require_once ('../app.php');
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>
 
-                <p style="border-bottom: 1px solid black"></p>
+                <hr>
+
                 <h3>検索結果</h3>
                 <?php
                 foreach ($hotels as $hotel) {
