@@ -1,5 +1,13 @@
 <?php
 require_once ('../app.php');
+$hotelssearched = $dataConnect->getHotelsBySearch($_POST['prefecture'], $_POST['hotel_name'], $_POST['detail']);
+
+// 各入力値の初期値
+$fPost = ['prefecture' => '', 'hotel_name' => '', 'detail' => ''];
+// 以下の場合に初期値から変更
+if (isset($_POST['prefecture'])) $fPost['prefecture'] = $_POST['prefecture'];
+if (isset($_POST['hotel_name'])) $fPost['hotel_name'] = $_POST['hotel_name'];
+if (isset($_POST['detail'])) $fPost['detail'] = $_POST['detail'];
 ?>
 
 <div class="page-title">
@@ -14,11 +22,11 @@ require_once ('../app.php');
                 <form method="POST" action="/hotels/search.php">
                     <div class="form-group">
                         <label for="prefecture"><strong>都道府県</strong></label>
-                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" id="prefecture" type="text" value="<?php echo $_POST['prefecture'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="prefecture" id="prefecture" type="text" value="<?php echo $fPost['prefecture'] ?>"><br>
                         <label for="hotel_name"><strong>ホテル名</strong></label>
-                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" id="hotel_name" type="text" value="<?php echo $_POST['hotel_name'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="hotel_name" id="hotel_name" type="text" value="<?php echo $fPost['hotel_name'] ?>"><br>
                         <label for="detail"><strong>詳細情報</strong></label>
-                        <input class="form-control" placeholder="キーワードを入力" name="detail" id="detail" type="text" value="<?php echo $_POST['detail'] ?>"><br>
+                        <input class="form-control" placeholder="キーワードを入力" name="detail" id="detail" type="text" value="<?php echo $fPost['detail'] ?>"><br>
                     </div>
                     <button class="btn btn-primary" type="submit">検索</button>
                 </form>
@@ -27,14 +35,12 @@ require_once ('../app.php');
 
                 <h3>検索結果</h3>
                 <?php
-                foreach ($hotels as $hotel) {
-                    $A = $methods->matchKeyword($hotel['address'], $_POST['prefecture']);
-                    $B = $methods->matchKeyword($hotel['hotel_name'], $_POST['hotel_name']);
-                    $C = $methods->matchKeyword($hotel['detail'], $_POST['detail']);
-                    //各項目とも「キーワード入力→一致なし」でなければ検索結果を表示　ただし、全項目がキーワード未入力の場合は検索結果を表示しない
-                    if ($A >= 0 and $B  >= 0 and $C >= 0 and abs($A) + abs($B) + abs($C) >= 1) {
+                if ($fPost['prefecture'] == '' and $fPost['hotel_name'] == '' and $fPost['detail'] == '') {
+                    echo 'キーワードを入力してください。';
+                } else {
+                    foreach ($hotelssearched as $hotel) {
                         $MediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
-                        echo $MediaHtml;
+                            echo $MediaHtml;
                     }
                 }
                 ?>

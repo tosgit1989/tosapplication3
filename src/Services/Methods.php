@@ -56,20 +56,6 @@ class Methods{
         return $ContentStatus;
     }
 
-    //matchKeyword($Parameter, $Keyword)
-    public function matchKeyword($Parameter, $Keyword) {
-        if (strlen($Keyword) == 0) {
-            //キーワード未入力の場合、0を返す
-            return 0;
-        } elseif (preg_match("'" . $Keyword . "'", $Parameter)) {
-            //キーワード入力→一致ありの場合、1を返す
-            return 1;
-        } else {
-            //キーワード入力→一致なしの場合、-1を返す
-            return -1;
-        }
-    }
-
     // getMediaHtml($id, $name, $image, $detail)
     public function getMediaHtml($id, $name, $image, $detail) {
         $html = '<div class="media">'

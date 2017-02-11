@@ -20,6 +20,18 @@ class DataHandler {
         return $query->fetchAll();
     }
 
+    // getHotelsBySearch($pre, $nam, $det)
+    public function getHotelsBySearch($pre, $nam, $det) {
+        $str1 = 'address LIKE "%' . $pre . '%"';
+        $str2 = 'hotel_name LIKE "%' . $nam . '%"';
+        $str3 = 'detail LIKE "%' . $det . '%"';
+        $pdo = $this->getPdo();
+        $prepareText = 'SELECT * FROM hotels WHERE ' . $str1 . ' AND ' . $str2 . ' AND ' . $str3;
+        $query = $pdo->prepare($prepareText);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
     // getById($Id, $TableName)
     public function getById($Id, $TableName) {
         $pdo = $this->getPdo();
