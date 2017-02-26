@@ -16,8 +16,8 @@ require_once ('app.php');
                 foreach ($hotels as $hotel) {
                     $t += 1;
                     if ($t <= 20) {
-                        $MediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
-                        echo $MediaHtml;
+                        $mediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
+                        echo $mediaHtml;
                     }
                 }
                 ?>

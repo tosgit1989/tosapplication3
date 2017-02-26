@@ -41,9 +41,9 @@ class Methods{
         if (!isset($tab)) {
             $tab = 'tab1';
         }
-        $TabStatus = ['tab1' => '', 'tab2' => ''];
-        $TabStatus[$tab] = 'active';
-        return $TabStatus;
+        $tabStatus = ['tab1' => '', 'tab2' => ''];
+        $tabStatus[$tab] = 'active';
+        return $tabStatus;
     }
 
     // getContentStatus($tab)
@@ -51,9 +51,9 @@ class Methods{
         if (!isset($tab)) {
             $tab = 'tab1';
         }
-        $ContentStatus = ['tab1' => 'hidden', 'tab2' => 'hidden'];
-        $ContentStatus[$tab] = '';
-        return $ContentStatus;
+        $contentStatus = ['tab1' => 'hidden', 'tab2' => 'hidden'];
+        $contentStatus[$tab] = '';
+        return $contentStatus;
     }
 
     // getMediaHtml($id, $name, $image, $detail)

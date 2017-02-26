@@ -1,8 +1,8 @@
 <?php
 require_once ('../app.php');
-$FromUser = $dataConnect->getById($UserId, 'users');
-$TabStatus = $methods->getTabStatus($_POST['tab']);
-$ContentStatus = $methods->getContentStatus($_POST['tab']);
+$fromUser = $dataConnect->getById($userId, 'users');
+$tabStatus = $methods->getTabStatus($_POST['tab']);
+$contentStatus = $methods->getContentStatus($_POST['tab']);
 ?>
 
 <div class="page-title">
@@ -15,15 +15,15 @@ $ContentStatus = $methods->getContentStatus($_POST['tab']);
 
                 <!--タブ-->
                 <ul class="nav nav-tabs">
-                    <li class=<?php echo $TabStatus['tab1'] ?>>
+                    <li class=<?php echo $tabStatus['tab1'] ?>>
                         <a href="" data-toggle="tab" onclick="document.tabform1.submit();return false;">基本情報</a>
-                        <form name="tabform1" method="POST" action="/users/show.php/<?php echo $UserId ?>">
+                        <form name="tabform1" method="POST" action="/users/show.php/<?php echo $userId ?>">
                             <input type="hidden" name="tab" value="tab1">
                         </form>
                     </li>
-                    <li class=<?php echo $TabStatus['tab2'] ?>>
+                    <li class=<?php echo $tabStatus['tab2'] ?>>
                         <a href="" data-toggle="tab" onclick="document.tabform2.submit();return false;">レビュー一覧</a>
-                        <form name="tabform2" method="POST" action="/users/show.php/<?php echo $UserId ?>">
+                        <form name="tabform2" method="POST" action="/users/show.php/<?php echo $userId ?>">
                             <input type="hidden" name="tab" value="tab2">
                         </form>
                     </li>
@@ -31,7 +31,7 @@ $ContentStatus = $methods->getContentStatus($_POST['tab']);
                 <!-- / タブ-->
                 <!--コンテンツ-->
                 <div id="myTabContent" class="tab-content">
-                    <div <?php echo $ContentStatus['tab1'] ?>>
+                    <div <?php echo $contentStatus['tab1'] ?>>
                         <!--自分の基本情報を表示-->
                         <h3 class="text-middle">基本情報</h3>
                         <h4>ニックネーム  : <?php echo $user['nickname'] ?></h4>
@@ -39,12 +39,12 @@ $ContentStatus = $methods->getContentStatus($_POST['tab']);
                         <a href="/users/edit.php/<?php echo $user['id'] ?>" class="btn btn-primary" role="button">編集</a>
                         <div class="media"></div> <!--この行はフッターとの隙間確保用-->
                     </div>
-                    <div <?php echo $ContentStatus['tab2'] ?>>
+                    <div <?php echo $contentStatus['tab2'] ?>>
                         <!--自分の投稿したものを表示-->
                         <h3 class="text-middle"><?php echo $user['nickname'] ?>さんのレビュー一覧</h3>
                         <?php
                         foreach ($reviews as $review) {
-                            if ($review['user_id'] == $UserId) {
+                            if ($review['user_id'] == $userId) {
                                 $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
                                 echo '<div class="media">';
                                 echo '<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">';

@@ -39,8 +39,8 @@ if (isset($_POST['detail'])) $fPost['detail'] = $_POST['detail'];
                     echo 'キーワードを入力してください。';
                 } else {
                     foreach ($hotelssearched as $hotel) {
-                        $MediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
-                            echo $MediaHtml;
+                        $mediaHtml = $methods->getMediaHtml($hotel['id'], $hotel['hotel_name'], $hotel['image_url'], $hotel['detail']);
+                            echo $mediaHtml;
                     }
                 }
                 ?>

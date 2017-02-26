@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$review = $dataConnect->getById($ReviewId, 'reviews');
+$review = $dataConnect->getById($reviewId, 'reviews');
 $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
 ?>
 
@@ -47,7 +47,7 @@ $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
                         <input class="form-control" name="exectype" type="hidden" value="edit">
                     </div>
                     <button class="btn btn-primary" type="submit">更新する</button>
-                    <a href="/users/show.php/<?php echo $UserId ?>" class="btn" style="background-color: silver; color: black" type="submit">キャンセル</a>
+                    <a href="/users/show.php/<?php echo $userId ?>" class="btn" style="background-color: silver; color: black" type="submit">キャンセル</a>
                 </form>
 
             </div>

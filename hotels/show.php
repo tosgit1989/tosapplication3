@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$hotel = $dataConnect->getById($HotelId, 'hotels');
+$hotel = $dataConnect->getById($hotelId, 'hotels');
 ?>
 
 <div class="page-title">
@@ -46,13 +46,13 @@ $hotel = $dataConnect->getById($HotelId, 'hotels');
                 <ul class="nav nav-tabs">
                     <li class=<?php echo $isTab1Active ?>>
                         <a href="" data-toggle="tab" onclick="document.form1.submit();return false;">詳細情報</a>
-                        <form name="form1" method="POST" action="/hotels/show.php/<?php echo $HotelId ?>">
+                        <form name="form1" method="POST" action="/hotels/show.php/<?php echo $hotelId ?>">
                             <input type="hidden" name="tab" value="tab1">
                         </form>
                     </li>
                     <li class=<?php echo $isTab2Active ?>>
                         <a href="" data-toggle="tab" onclick="document.form2.submit();return false;">みんなのレビュー</a>
-                        <form name="form2" method="POST" action="/hotels/show.php/<?php echo $HotelId ?>">
+                        <form name="form2" method="POST" action="/hotels/show.php/<?php echo $hotelId ?>">
                             <input type="hidden" name="tab" value="tab2">
                         </form>
                     </li>
@@ -73,7 +73,7 @@ $hotel = $dataConnect->getById($HotelId, 'hotels');
                         <h3 class="text-middle">みんなのレビュー</h3>
                         <?php
                         foreach ($reviews as $review) {
-                            if ($review['hotel_id'] == $HotelId) {
+                            if ($review['hotel_id'] == $hotelId) {
                                 $user = $dataConnect->getById($review['user_id'], 'users');
                                 echo '<div class="media">';
                                 echo '<div class="media-body">';

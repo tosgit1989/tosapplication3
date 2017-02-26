@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$hotel = $dataConnect->getById($HotelId, 'hotels');
+$hotel = $dataConnect->getById($hotelId, 'hotels');
 ?>
 
 <div class="page-title">

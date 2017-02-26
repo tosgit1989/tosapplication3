@@ -1,6 +1,6 @@
 <?php
 require_once ('../app.php');
-$review = $dataConnect->getById($ReviewId, 'reviews');
+$review = $dataConnect->getById($reviewId, 'reviews');
 $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
 ?>
 
@@ -25,12 +25,12 @@ $hotel = $dataConnect->getById($review['hotel_id'], 'hotels');
                 </div>
 
                 <h3>本当に削除しますか？</h3>
-                <form method="POST" action="/reviews/exec.php/<?php echo $ReviewId ?>">
+                <form method="POST" action="/reviews/exec.php/<?php echo $reviewId ?>">
                     <div class="form-group">
                         <input class="form-control" name="exectype" type="hidden" value="delete">
                     </div>
                     <button class="btn btn-danger" type="submit">削除</button>
-                    <a href="/users/show.php/<?php echo $UserId ?>" class="btn" style="background-color: silver; color: black">いいえ</a>
+                    <a href="/users/show.php/<?php echo $userId ?>" class="btn" style="background-color: silver; color: black">いいえ</a>
                 </form>
                 <div style="height: 30px"></div>
 
