@@ -11,10 +11,10 @@ class DataHandler {
         return $pdo;
     }
 
-    // getAll($TableName)
-    public function getAll($TableName) {
+    // getAll($tableName)
+    public function getAll($tableName) {
         $pdo = $this->getPdo();
-        $prepareText = 'SELECT * FROM ' . $TableName . ' ORDER BY updated_at DESC';
+        $prepareText = 'SELECT * FROM ' . $tableName . ' ORDER BY updated_at DESC';
         $query = $pdo->prepare($prepareText);
         $query->execute();
         return $query->fetchAll();
@@ -32,10 +32,10 @@ class DataHandler {
         return $query->fetchAll();
     }
 
-    // getById($Id, $TableName)
-    public function getById($Id, $TableName) {
+    // getById($Id, $tableName)
+    public function getById($Id, $tableName) {
         $pdo = $this->getPdo();
-        $prepareText = 'SELECT * FROM ' . $TableName . ' WHERE id = :id';
+        $prepareText = 'SELECT * FROM ' . $tableName . ' WHERE id = :id';
         $query = $pdo->prepare($prepareText);
         $query->execute(['id' => $Id]);
         return $query->fetch();
@@ -49,12 +49,12 @@ class DataHandler {
         return $queryUser->fetch();
     }
 
-    // update($data, $identifier, $TableName)
-    public function update($data, $identifier, $TableName) {
+    // update($data, $identifier, $tableName)
+    public function update($data, $identifier, $tableName) {
         $pdo = $this->getPdo();
         $paramsStr = $this->getUpdateParameterStrings($data);
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
-        $prepareText = 'UPDATE ' . $TableName . ' SET ' . $paramsStr . ' WHERE ' . $identifierStr;
+        $prepareText = 'UPDATE ' . $tableName . ' SET ' . $paramsStr . ' WHERE ' . $identifierStr;
         $query = $pdo->prepare($prepareText);
     }
 
@@ -67,11 +67,11 @@ class DataHandler {
         $query->execute();
     }
 
-        // insert($data, $TableName)
-    public function insert($data, $TableName) {
+        // insert($data, $tableName)
+    public function insert($data, $tableName) {
         $pdo = $this->getPdo();
         $res = $this->getKeysAndValsStrings($data);
-        $prepareText = 'INSERT INTO ' . $TableName . ' (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
+        $prepareText = 'INSERT INTO ' . $tableName . ' (' . $res['key'] . ') VALUES (' . $res['val'] . ')';
         $query = $pdo->prepare($prepareText);
         $query->execute();
     }
