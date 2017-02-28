@@ -55,7 +55,6 @@ class DataHandler {
         $paramsStr = $this->getUpdateParameterStrings($data);
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'UPDATE ' . $TableName . ' SET ' . $paramsStr . ' WHERE ' . $identifierStr;
-        var_dump($prepareText);
         $query = $pdo->prepare($prepareText);
     }
 
@@ -64,7 +63,6 @@ class DataHandler {
         $pdo = $this->getPdo();
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'UPDATE users SET nickname = "' . $dataN . '", email = "' . $dataE . '" WHERE ' . $identifierStr;
-        var_dump($prepareText);
         $query = $pdo->prepare($prepareText);
         $query->execute();
     }
@@ -93,7 +91,6 @@ class DataHandler {
         $params_str = $this->getUpdateParameterStrings($data);
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'UPDATE reviews SET ' . $params_str . ' WHERE ' . $identifierStr;
-        var_dump($prepareText);
         $query = $pdo->prepare($prepareText);
         $query->execute();
     }
