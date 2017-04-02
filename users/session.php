@@ -33,15 +33,15 @@ if ($signType == 'signUp') {
                 header('Location: /index.php');
             } else {
                 unset($_SESSION['id']);
-                header('Location: /users/message.php/failedToSignUp2');
+                header('Location: /users/message.php/failedToSignUpUsed');
             }
         } else {
             unset($_SESSION['id']);
-            header('Location: /users/message.php/failedToSignUp1');
+            header('Location: /users/message.php/failedToSignUpMismatch');
         }
     } else {
         unset($_SESSION['id']);
-        header('Location: /users/message.php/failedToSignUp3');
+        header('Location: /users/message.php/failedToSignUpEmpty');
     }
 }
 
@@ -65,11 +65,11 @@ if ($signType == 'signIn') {
             header('Location: /index.php');
         } else {
             unset($_SESSION['id']);
-            header('Location: /users/message.php/failedToSignIn1');
+            header('Location: /users/message.php/failedToSignInWrong');
         }
     } else {
         unset($_SESSION['id']);
-        header('Location: /users/message.php/failedToSignIn2');
+        header('Location: /users/message.php/failedToSignInEmpty');
     }
 }
 
