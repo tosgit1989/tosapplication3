@@ -11,7 +11,7 @@ require_once ('../app.php');
             <div class="bs-docs-section">
 
                 <!--フォーム-->
-                <form action="/users/session.php/signIn" method="post">
+                <form action="/auth/session.php/signIn" method="post">
                     <div class="form-group">
                         <!--メールアドレス入力欄-->
                         <label for="email"><strong>メールアドレス</strong></label>
@@ -28,7 +28,7 @@ require_once ('../app.php');
 
                 <hr>
 
-                <a href="/users/sign_up.php" class="btn btn-info" value="サインイン">アカウントを持っていない方は、こちら</a>
+                <a href="/auth/sign_up.php" class="btn btn-info" value="サインイン">アカウントを持っていない方は、こちら</a>
 
             </div>
         </div>
