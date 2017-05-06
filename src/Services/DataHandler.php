@@ -56,6 +56,7 @@ class DataHandler {
         $identifierStr = $this->getUpdateParameterStrings($identifier, true);
         $prepareText = 'UPDATE ' . $tableName . ' SET ' . $paramsStr . ' WHERE ' . $identifierStr;
         $query = $pdo->prepare($prepareText);
+        $query->execute();
     }
 
     // updateUser($data, $identifier)
